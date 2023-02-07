@@ -1,0 +1,186 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+@import "assets/fonts/yekan/yekanbakh.css";
+@import "assets/scss/theme";
+@import "assets/scss/font";
+@import "src/scss/utils";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  font-family: yekanbakh, serif;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+@mixin bottomSheet {
+  padding: 0 !important;
+  font: unset !important;
+  overflow: unset !important;
+}
+
+.custom_bottom_sheet {
+  @include bottomSheet;
+  max-height: 90vh !important;
+  border-radius: 10px 10px 0 0;
+}
+
+.full_height_bottom_sheet {
+  @include bottomSheet;
+  min-height: 100vh;
+}
+
+
+.row-container {
+  padding: 1rem;
+}
+
+.custom-border {
+  border: 1px solid $natural-200;
+  border-radius: 8px;
+}
+
+.custom-card {
+  border: 1px solid $natural-200;
+  border-radius: 8px;
+  background-color: white;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.primary-border {
+  border: 1px solid $primary;
+  border-radius: 8px;
+}
+
+.success-card {
+  background: #29BB5233;
+  padding: 16px;
+}
+
+.error-card {
+  background: #EB61621A;
+  padding: 16px;
+}
+
+.warning-card {
+  background: #FDDB604D;
+  padding: 16px;
+}
+
+.discount-card {
+  background: #99CAFF;
+  padding: 16px;
+}
+
+
+hr {
+  color: $natural-500;
+}
+
+* {
+  user-select: none
+}
+
+input, textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+  outline: 0px !important;
+  //-webkit-appearance: none;
+  box-shadow: none !important;
+}
+
+
+// circle checkbox
+.circle_checked_wrapper {
+  position: relative;
+
+  label {
+    background-color: $natural-100;
+    border: 1px solid $natural-200;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 25px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 25px;
+
+    &::after {
+      border: 2px solid #fff;
+      border-top: none;
+      border-right: none;
+      content: "";
+      height: 6px;
+      left: 6px;
+      opacity: 0;
+      position: absolute;
+      top: 8px;
+      transform: rotate(-45deg);
+      width: 12px;
+    }
+
+    &.square {
+      border-radius: 5px;
+      height: 20px;
+      width: 20px;
+    }
+
+    &.square:after {
+      left: 3px;
+      top: 5px;
+    }
+  }
+
+  input[type="checkbox"], input[type="radio"] {
+    visibility: hidden;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:checked + label {
+      background-color: $success;
+      border-color: $success;
+    }
+
+    &.primary:checked + label {
+      background-color: $primary;
+      border-color: $primary;
+    }
+
+    &:checked + label:after {
+      opacity: 1;
+    }
+  }
+}
+

@@ -1,0 +1,16 @@
+<app-main-toolbar [showSupport]="true" bgColor="background-natural-100" ></app-main-toolbar>
+<div class="wrapper background-white">
+  <div class="router_wrapper">
+    <div class="background-natural-100">
+      <div class="row-container mb-3">
+        <span class="font-sm-regular text-natural-800 d-block mb-2">{{title|translate}}</span>
+        <app-register-stepper [currentStep]="currentStep"></app-register-stepper>
+      </div>
+      <div class="background-white row-container"
+           style="box-shadow: 0px 4px 4px -10px rgba(0, 0, 0, 0.25);border-radius: 24px 24px 0px 0px;">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+

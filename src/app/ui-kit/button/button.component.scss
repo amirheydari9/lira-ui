@@ -1,0 +1,44 @@
+@import "src/scss/variabels";
+
+.btn-wrapper {
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid $primary;
+
+  button {
+    border: unset;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+  }
+
+  &.primary {
+    background-color: $primary;
+
+    button {
+      color: white;
+    }
+  }
+
+  &.outline {
+    background-color: white;
+
+    button {
+      color: $primary;
+    }
+  }
+
+  &.disabled {
+    border: 1px solid $natural-300;
+    background-color: $natural-300;
+
+    button {
+      color: $natural-500
+    }
+  }
+
+  &.round {
+    border-radius: 25px !important;
+  }
+
+}

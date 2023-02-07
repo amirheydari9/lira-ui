@@ -1,0 +1,14 @@
+@import "src/scss/variabels";
+
+.requirement-index{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 24px;
+  height: 24px;
+  border: 1px solid $natural-400;
+  background-color: $natural-100;
+  border-radius: 100%;
+  text-align: center;
+}

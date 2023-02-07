@@ -1,0 +1,16 @@
+<div style="height: 80px">
+  <div class="wrapper d-flex justify-content-between align-items-start" (click)="handleShowItems()">
+    <input
+      class="text-natural-800 font-md-medium"
+      readonly
+      [placeholder]="label"
+      [(ngModel)]="value"
+      (blur)="touched()"
+    >
+    <span class="font-sm-regular">{{label}}</span>
+    <div class="triangle"></div>
+  </div>
+  <div style="height: 12px">
+    <app-field-errors class="font-xxs-regular" [formField]="control"></app-field-errors>
+  </div>
+</div>

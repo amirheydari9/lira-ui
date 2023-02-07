@@ -1,0 +1,25 @@
+<div style="height: 80px">
+  <div class="wrapper" (click)="input.focus()"
+       [ngClass]="[control.invalid && (control.dirty || control.touched) ? 'error' :'default']">
+    <input class="text-natural-800 font-md-medium"
+           convertNumberToEnglish
+           #input
+           autocomplete="off"
+           [disabled]="disabled"
+           [readOnly]="readonly"
+           [type]="type"
+           [placeholder]="label"
+           [maxlength]="maxLength"
+           [dir]="dir"
+           [align]="align"
+           (input)="onChanged($event)"
+           (blur)="touched()"
+           [(ngModel)]="value"
+           [attr.inputmode]="inputMode"
+    >
+    <span class="font-sm-regular">{{label}}</span>
+  </div>
+  <div style="height: 12px">
+    <app-field-errors [formField]="control"></app-field-errors>
+  </div>
+</div>

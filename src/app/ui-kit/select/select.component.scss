@@ -1,0 +1,59 @@
+@import "src/scss/variabels";
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  padding: 1.4rem 0 0.2rem 0;
+  background-color: white;
+  border-radius: 8px;
+  &.default{
+    border: 1px solid $natural-300;
+  }
+  &.error{
+    border: 1px solid $error;
+  }
+}
+
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 100%;
+  padding-right: 10px;
+}
+
+input::placeholder {
+  opacity: 0;
+}
+
+span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(20px);
+  transition-duration: 300ms;
+  margin-right: 10px;
+}
+
+.wrapper:focus-within > span,
+input:not(:placeholder-shown) + span {
+  transform: translateY(5px);
+}
+
+input:disabled {
+  color: $natural-400;
+  background-color: inherit;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border: 3px solid transparent;
+  border-top: 5px solid $natural-500;
+  border-bottom: 0;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+
+

@@ -1,0 +1,11 @@
+<div class="d-flex justify-content-start px-1">
+  <div class="circle_checked_wrapper ms-2">
+    <input type="checkbox"
+           [(ngModel)]="value"
+           (change)="onChanged($event)"
+           [id]="id"/>
+    <label class="square" [for]="id"></label>
+  </div>
+  <ng-content></ng-content>
+</div>
+

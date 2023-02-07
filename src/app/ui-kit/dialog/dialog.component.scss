@@ -1,0 +1,11 @@
+@import "src/scss/variabels";
+
+.wrapper {
+  height: 100vh;
+  //overflow-y: auto;
+  .content {
+    //padding: 75px 15px 90px;
+    overflow-y: auto;
+  }
+
+}

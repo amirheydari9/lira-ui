@@ -1,0 +1,28 @@
+<div [ngClass]="class">
+
+   <span class="text-natural-800 mb-3 d-block"
+         [innerHTML]="'COMPONENTS.OTP.TITLE'|translate:{value:'09122982143'}"
+   ></span>
+
+  <ng-otp-input
+    dir="ltr"
+    [formCtrl]="otpControl"
+    [config]="otpConfig"
+  ></ng-otp-input>
+
+  <div class="d-flex align-items-center justify-content-center mt-3">
+    <div *ngIf="!showRetry;else retry">
+      <span class="text-natural-400 font-sm-regular ms-2" [translate]="'COMPONENTS.OTP.BE_PATIENT'"></span>
+      <app-count-down
+        class="text-primary font-sm-bold"
+        [countDownConfig]="countdownConfig"
+        (timeLeft)="showRetry = true"
+      ></app-count-down>
+    </div>
+    <ng-template #retry>
+      <span class="text-natural-400 font-sm-regular" [translate]="'COMPONENTS.OTP.DONT_RECEIVE_THE_VERIFICATION_CODE'"></span>
+      <span class="text-primary font-sm-bold me-2"
+            (click)="handleResendOtp()" [translate]="'COMPONENTS.OTP.RESEND'"></span>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<ng-container *ngIf="shouldShowErrors()">
+  <div class="d-flex align-items-center mt-1" *ngFor="let error of listOfErrors();let i = index">
+    <ng-container *ngIf="i===0">
+<!--      <app-svg-icon svg="red_info_validation" width="16" height="16" class="ms-1"></app-svg-icon>-->
+      <span class="font-xxs-regular text-error">{{error}}</span>
+    </ng-container>
+  </div>
+</ng-container>
+

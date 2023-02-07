@@ -1,0 +1,10 @@
+<mat-toolbar class="app-toolbar" [ngClass]="[bgColor ? bgColor : 'background-white']">
+  <mat-toolbar-row class="d-flex justify-content-between align-items-center">
+    <app-svg-icon *ngIf="showBackButton" (click)="navigationService.goBack()" svg="back"></app-svg-icon>
+    <span *ngIf="title" class="d-flex flex-grow-1 justify-content-center text-natural-800 font-sm-bold">{{title}}</span>
+    <div *ngIf="showSupport" class="d-flex align-items-center">
+      <app-svg-icon svg="support" width="16" height="16" classes="ms-1"></app-svg-icon>
+      <span class="text-success-lira font-sm-bold" [translate]="'COMPONENTS.MAIN_TOOLBAR.SUPPORT'|translate"></span>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

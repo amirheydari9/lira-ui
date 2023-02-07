@@ -1,0 +1,70 @@
+@import "src/scss/variabels";
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  padding: 1.4rem 0 0.2rem 0;
+  border-radius: 8px;
+  background-color: white;
+  &.default {
+    border: 1px solid $natural-300;
+  }
+  &.error {
+    border: 1px solid $error;
+  }
+
+  textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+
+    &::-webkit-resizer{
+      display: none;
+    }
+
+    &::placeholder {
+      text-align: right;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      color: $natural-400;
+    }
+  }
+
+  textarea::placeholder {
+    opacity: 0;
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(17px);
+    transition-duration: 300ms;
+    margin-right: 10px;
+    color: $natural-400;
+  }
+
+  &:focus-within > span,
+  textarea:not(:placeholder-shown) + span {
+    transform: translateY(5px);
+  }
+
+  textarea:disabled {
+    color: $natural-400;
+    background-color: inherit;
+  }
+
+  &:host(textarea:disabled) {
+    border: 1px solid $natural-200;
+    background-color: $natural-400;
+  }
+
+  &:host(textarea.ng-dirty.ng-invalid) {
+    border: 1px solid $error;
+  }
+
+}

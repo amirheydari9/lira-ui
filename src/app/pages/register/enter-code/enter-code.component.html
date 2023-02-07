@@ -1,0 +1,10 @@
+<app-otp
+  [nationalCode]="'0012091855'"
+  (isValid)="otpIsValid=$event"
+></app-otp>
+
+<app-action-bar
+  [disabled]="!otpIsValid"
+  [confirmLabel]="'ENTER_CODE.ACTION_LABEL'|translate"
+  routerLink="/register/card-info"
+></app-action-bar>

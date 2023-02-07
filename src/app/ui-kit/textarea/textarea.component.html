@@ -1,0 +1,17 @@
+<div style="height: 100px">
+  <div class="d-flex align-items-center wrapper" (click)="input.focus()"
+       [ngClass]="[control.invalid && (control.dirty || control.touched) ? 'error' :'default']">
+    <textarea
+      #input
+      [placeholder]="placeholder"
+      [value]="value"
+      (input)="onChanged($event)"
+      (blur)="touched()"
+    ></textarea>
+    <span class="font-sm-regular">{{placeholder}}</span>
+  </div>
+  <div style="height: 12px">
+    <app-field-errors [formField]="control"></app-field-errors>
+  </div>
+</div>
+

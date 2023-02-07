@@ -1,0 +1,33 @@
+@import "src/scss/variabels";
+
+.main_container {
+  max-width: 450px;
+  margin: 0 auto;
+  overflow-y: unset;
+}
+
+::ng-deep .mat-datepicker-content {
+  border-radius: 8px !important;
+
+  .mat-calendar-controls {
+    margin: 0 !important;
+  }
+
+  .mat-calendar-body-selected {
+    background-color: $primary;
+    color: #fff;
+  }
+
+  .mat-calendar-body-active .mat-calendar-body-today {
+    color: white !important;
+    background-color: $primary !important;
+  }
+
+  .mat-calendar-body-in-range::before {
+    background: #cccccc;
+  }
+}
+
+::ng-deep .mat-datepicker-content-touch .mat-datepicker-content-container {
+  height: unset !important;
+}

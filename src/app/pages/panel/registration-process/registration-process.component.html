@@ -1,0 +1,17 @@
+<div class="row-container d-flex flex-column">
+  <span class="font-sm-medium text-natural-800 mb-3" [translate]="'REGISTER.TITLE'|translate"></span>
+  <app-register-stepper class="mb-3"></app-register-stepper>
+  <div *ngFor="let requirement of requirements;let i = index" class="custom-card position-relative">
+    <span class="requirement-index">{{i + 1}}</span>
+    <div class="d-flex align-items-center justify-content-start">
+      <span class="font-sm-medium text-natural-800" [translate]="requirement.title|translate"></span>
+    </div>
+    <span class="font-sm-regular text-natural-500" [translate]="requirement.subTitle|translate"></span>
+  </div>
+</div>
+
+<app-action-bar
+  [showDivider]="true"
+  [confirmLabel]="'REGISTER.ACTION_LABEL'|translate"
+  routerLink="/register/personal-info"
+></app-action-bar>

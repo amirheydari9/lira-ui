@@ -1,0 +1,84 @@
+@import "src/scss/variabels";
+
+.stepper-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.stepper-item::after {
+  position: absolute;
+  content: "";
+  border-bottom: 1px dashed $natural-400;
+  width: 100%;
+  top: 20px;
+  left: -50%;
+  z-index: 2;
+}
+
+.stepper-item::before {
+  position: absolute;
+  content: "";
+  border: 1px dashed $natural-400;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 2;
+}
+
+.stepper-item .step-counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  margin-bottom: 6px;
+  border: 1px solid $primary;
+}
+
+//.stepper-item.active::before {
+//  border-bottom: 2px solid $primary
+//}
+
+//.stepper-item.active .step-counter {
+//  border: 2px solid $primary;
+//}
+
+.stepper-item.completed .step-counter {
+  background-color: $primary;
+  //border: 1px solid $primary;
+}
+
+.stepper-item.completed .step-name {
+  color: $primary;
+}
+
+.stepper-item.completed::before {
+  position: absolute;
+  content: "";
+  //border: 1px solid $primary;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 3;
+}
+
+.stepper-item:first-child::before {
+  content: none;
+}
+
+.stepper-item:last-child::after {
+  content: none;
+}
+

@@ -1,0 +1,8 @@
+<div class="row-container">
+  <div [innerHTML]="'TERMS_AND_CONDITIONS.CONTENT'|translate"></div>
+</div>
+<app-action-bar
+  [showDivider]="true"
+  [confirmLabel]="'TERMS_AND_CONDITIONS.ACTION_LABEL'|translate"
+  routerLink="/registration-process"
+></app-action-bar>

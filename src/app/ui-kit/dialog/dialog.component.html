@@ -1,0 +1,18 @@
+<div class="wrapper" [ngClass]="[bgColor ? bgColor :'background-white']">
+  <app-svg-icon class="row-container" svg="close" (click)="handleCloseDialog()"></app-svg-icon>
+  <div class="content" [class.row-container]="hasPadding">
+    <ng-content></ng-content>
+  </div>
+</div>
+
+<app-action-bar
+  *ngIf="showActionBar"
+  [disabled]="disabled"
+  [confirmLabel]="confirmLabel"
+  [fullWidth]="fullWidth"
+  [showCancel]="showCancelBtn"
+  [cancelLabel]="cancelLabel"
+  (confirm)="actionConfirmed.emit()"
+  (cancel)="cancel.emit()"
+></app-action-bar>
+

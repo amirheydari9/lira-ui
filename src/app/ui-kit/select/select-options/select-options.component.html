@@ -1,0 +1,21 @@
+<app-dialog
+  [title]="data.title"
+  [showActionBar]="false"
+  [closeable]="true"
+  contentClass="p-0"
+  #dialog
+>
+  <div style="height: 60vh">
+    <div style="z-index: 2" class="position-fixed d-flex justify-content-center background-white w-100">
+<!--      <form [formGroup]="SearchOptions" class="w-100 px-3 mt-2">-->
+<!--        <app-input-search formControlName="searchText" [placeholder]="data.searchPlaceholder"></app-input-search>-->
+<!--      </form>-->
+    </div>
+    <div class="row-container" style="padding-top: 4.5rem">
+      <div *ngFor="let item of filteredItems$ | async;let i = index">
+        <span class="text-1 font-sm-regular" (click)="dialog.handleCloseDialog(item)">{{item[data.labelKey]}}</span>
+        <hr *ngIf="data.options.length -1 !== i"/>
+      </div>
+    </div>
+  </div>
+</app-dialog>

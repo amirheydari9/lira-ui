@@ -1,0 +1,43 @@
+<span class="font-sm-regular text-natural-800 mb-3 d-block" [translate]="'CARD_INFO.TITLE'"></span>
+
+<form [formGroup]="CardInfoForm">
+
+  <app-card-number
+    [label]="'CARD_INFO.INPUT_1'|translate"
+    formControlName="cardNumber"
+  ></app-card-number>
+
+  <app-text-input
+    [label]="'CARD_INFO.INPUT_2'|translate"
+    formControlName="cvv2"
+    type="password"
+    inputMode="numeric"
+    [maxLength]="4"
+  ></app-text-input>
+
+  <div class="row gx-4">
+    <div class="col-6">
+      <app-text-input
+        [label]="'CARD_INFO.INPUT_3'|translate"
+        formControlName="expYear"
+        inputMode="numeric"
+        [maxLength]="2"
+      ></app-text-input>
+    </div>
+    <div class="col-6">
+      <app-text-input
+        [label]="'CARD_INFO.INPUT_4'|translate"
+        formControlName="expMonth"
+        inputMode="numeric"
+        [maxLength]="2"
+      ></app-text-input>
+    </div>
+  </div>
+
+</form>
+
+<app-action-bar
+  [disabled]="CardInfoForm.invalid"
+  [confirmLabel]="'CARD_INFO.ACTION_LABEL'|translate"
+  routerLink="/register/destination-address"
+></app-action-bar>

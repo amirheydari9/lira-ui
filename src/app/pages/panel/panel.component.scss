@@ -1,0 +1,17 @@
+.wrapper{
+  height: 100vh;
+  //overflow-y: auto;
+}
+
+.router_wrapper {
+  //margin-top: 64px;
+  //background-color: #F8F9FB;
+  //height: calc(100vh - 64px);
+  overflow-y: auto;
+  //height:calc(100vh - 64px)
+  //height: 100vh;
+  padding-top: 60px;
+  padding-bottom: 64px;
+  background-color: inherit;
+}
+

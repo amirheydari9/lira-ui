@@ -1,0 +1,28 @@
+<div class="action_bar_wrapper" [ngStyle]="{'position':position}">
+  <hr *ngIf="showDivider" class="m-0" />
+  <div #ref [ngClass]="{'row-container':ref.children.length }">
+    <ng-content select="[content]"></ng-content>
+  </div>
+  <div class="d-flex justify-content-between align-items-center p-3">
+    <ng-container *ngIf="!fullWidth">
+      <app-button
+        *ngIf="showCancel;else elseBack"
+        (click)="handleCancel()"
+        [type]="'outline'"
+        [label]="cancelLabel"
+        [ngStyle]="{'width':'45%'}"
+      ></app-button>
+      <ng-template #elseBack>
+        <div class="d-flex flex-column align-items-start justify-content-between">
+          <ng-content></ng-content>
+        </div>
+      </ng-template>
+    </ng-container>
+    <app-button
+      [disabled]="disabled"
+      [label]="confirmLabel"
+      [ngStyle]="{'width':fullWidth ? '100%':'45%'}"
+      (click)="handleConfirm()"
+    ></app-button>
+  </div>
+</div>
