@@ -24,7 +24,6 @@ export class PassportInfoComponent implements OnInit {
       date: this.fb.control('', [Validators.required]),
       expDate: this.fb.control('', [Validators.required]),
     })
-    this.bt.open(UploadDocumentComponent)
   }
 
   handleConfirm() {
