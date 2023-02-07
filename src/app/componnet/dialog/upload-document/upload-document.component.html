@@ -1,4 +1,5 @@
 <app-dialog [hasPadding]="false" bgColor="background-natural-100">
+
   <div class="d-flex flex-column justify-content-center p-5">
 
     <div class="d-flex flex-column justify-content-between mb-4 position-relative" style="height: 200px;">
@@ -20,11 +21,12 @@
     </div>
 
   </div>
-  <div class="background-white row-container position-absolute bottom-0 w-100 d-flex flex-column align-items-center justify-content-center"
-       style="box-shadow: 0px 4px 4px -10px rgba(0, 0, 0, 0.25);border-radius: 24px 24px 0px 0px;">
+
+  <div class="custom_layout position-fixed bottom-0 w-100 d-flex flex-column align-items-center justify-content-center">
     <span class="text-natural-800 font-sm-medium text-center mb-4"
           [translate]="'COMPONENTS.DIALOG.UPLOAD_DOCUMENT.TEXT_2'|translate"></span>
     <app-svg-icon svg="camera" width="55" height="54" (click)="camera.click()"></app-svg-icon>
     <input #camera (change)="handleChangeFile($event)" type="file" accept="image/*" capture="environment" class="d-none"/>
   </div>
+
 </app-dialog>
