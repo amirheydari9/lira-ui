@@ -5,6 +5,7 @@ import {DateService} from "../../service/date.service";
 import {MatDatepickerInputEvent, MatDatepickerModule} from "@angular/material/datepicker";
 import {FieldErrorModule} from "../field-errors/field-errors.component";
 import {MaterialJalaliMomentAdapterModule} from "material-jalali-moment-adapter";
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-date-picker',
@@ -42,6 +43,7 @@ export class DatePickerComponent extends BaseControlValueAccessor<string> implem
 @NgModule({
   declarations: [DatePickerComponent],
   imports: [
+    CommonModule,
     MatDatepickerModule,
     FormsModule,
     FieldErrorModule,

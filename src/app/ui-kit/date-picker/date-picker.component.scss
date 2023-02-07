@@ -2,11 +2,16 @@
 
 .wrapper {
   position: relative;
-  border: 1px solid $natural-300;
   width: 100%;
   padding: 1.4rem 0 0.2rem 0;
   background-color: white;
   border-radius: 8px;
+  &.default{
+    border: 1px solid $natural-300;
+  }
+  &.error{
+    border: 1px solid $error;
+  }
 }
 
 input {
