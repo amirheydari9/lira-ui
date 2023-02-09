@@ -1,7 +1,7 @@
 <app-dialog
   [showActionBar]="true"
   [confirmLabel]="'COMPONENTS.DIALOG.PERSONAL_INFO_SUCCESS.ACTION_LABEL'|translate"
-  routerLink="/"
+  (confirm)="router.navigate(['/'])"
 >
   <div class="d-flex flex-column">
 

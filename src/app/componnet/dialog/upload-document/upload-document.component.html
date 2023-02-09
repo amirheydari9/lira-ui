@@ -16,15 +16,15 @@
 
     <div class="d-flex align-items-center justify-content-center" (click)="file.click()">
       <app-svg-icon class="ms-1"></app-svg-icon>
-      <span class="text-primary font-sm-medium" [translate]="'COMPONENTS.DIALOG.UPLOAD_DOCUMENT.TEXT_1'|translate"></span>
-      <input #file type="file" accept="image/*" class="d-none" (change)="handleChangeFile($event)" />
+      <span class="text-primary font-sm-medium"
+            [translate]="'COMPONENTS.DIALOG.UPLOAD_DOCUMENT.TEXT_1'|translate"></span>
+      <input #file type="file" accept="image/*" class="d-none" (change)="handleChangeFile($event)"/>
     </div>
 
   </div>
 
-  <div class="custom_layout position-fixed bottom-0 w-100 d-flex flex-column align-items-center justify-content-center">
-    <span class="text-natural-800 font-sm-medium text-center mb-4"
-          [translate]="'COMPONENTS.DIALOG.UPLOAD_DOCUMENT.TEXT_2'|translate"></span>
+  <div action class="custom_layout d-flex flex-column align-items-center justify-content-center">
+    <span class="text-natural-800 font-sm-medium text-center mb-4" [translate]="'COMPONENTS.DIALOG.UPLOAD_DOCUMENT.TEXT_2'|translate"></span>
     <app-svg-icon svg="camera" width="55" height="54" (click)="camera.click()"></app-svg-icon>
     <input #camera (change)="handleChangeFile($event)" type="file" accept="image/*" capture="environment" class="d-none"/>
   </div>

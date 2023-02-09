@@ -3,7 +3,7 @@ import {DialogModule} from "../../../ui-kit/dialog/dialog.component";
 import {TranslateModule} from "@ngx-translate/core";
 import {ActionSuccessModule} from "../../action-success/action-success.component";
 import {SvgIconModule} from "../../svg-icon/svg-icon.component";
-import {RouterModule} from "@angular/router";
+import {Router, RouterModule} from "@angular/router";
 import {RegisterStepperModule} from "../../register-stepper/register-stepper.component";
 
 @Component({
@@ -13,7 +13,10 @@ import {RegisterStepperModule} from "../../register-stepper/register-stepper.com
 })
 export class PaymentSuccessDialogComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public router: Router
+  ) {
+  }
 
   ngOnInit(): void {
   }
@@ -32,6 +35,6 @@ export class PaymentSuccessDialogComponent implements OnInit {
   ],
   exports: [PaymentSuccessDialogComponent]
 })
-export class PaymentSuccessDialogModule{
+export class PaymentSuccessDialogModule {
 
 }
