@@ -34,7 +34,7 @@ export class DialogComponent implements OnInit {
 
   subscription: Subscription
 
-  @Output() actionConfirmed: EventEmitter<void> = new EventEmitter<void>()
+  @Output() confirm: EventEmitter<void> = new EventEmitter<void>()
   @Output() cancel: EventEmitter<void> = new EventEmitter<void>()
 
   constructor(
