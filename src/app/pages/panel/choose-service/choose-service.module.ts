@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ChooseServiceComponent} from './choose-service.component';
 import {RouterModule} from '@angular/router';
 import {TranslateModule} from "@ngx-translate/core";
+import {CardTypeStore} from "../../../data-store/card-type-store/card-type.store";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {TranslateModule} from "@ngx-translate/core";
         component: ChooseServiceComponent
       }
     ]),
-    TranslateModule
+    TranslateModule,
+    CardTypeStore
   ]
 })
 export class ChooseServiceModule {

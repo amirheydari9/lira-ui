@@ -1,0 +1,44 @@
+import {Injectable} from "@angular/core";
+import {Dispatch} from "@ngxs-labs/dispatch-decorator";
+import {RegisterService} from "../../api/register.service";
+import {RegisterDTO} from "../../model/DTO/register.DTO";
+import {ConfirmAddressDTO} from "../../model/DTO/confirm-address.DTO";
+import {ConfirmHotelAddressDTO} from "../../model/DTO/confirm-hotel-address.DTO";
+import {Select} from "@ngxs/store";
+import {Observable} from "rxjs";
+import {InquiryRegisterAction, RegisterState} from "./register.store";
+import {IInquiryRegisterRes} from "../../model/interface/inquiry-register-res.interface";
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RegisterFacade {
+
+  constructor(
+    private registerService: RegisterService,
+  ) {
+  }
+
+  @Select(RegisterState.inquiryRegister) inquiryRegister$: Observable<IInquiryRegisterRes>
+
+
+  async register(payload: RegisterDTO) {
+    await this.registerService.register(payload)
+  }
+
+  @Dispatch()
+  async inquiryRegister() {
+    const data = await this.registerService.inquiryRegister()
+    return new InquiryRegisterAction(data)
+  }
+
+  async confirmAddress(payload: ConfirmAddressDTO) {
+    await this.registerService.confirmAddress(payload)
+  }
+
+  async confirmHotelAddress(payload: ConfirmHotelAddressDTO) {
+    await this.registerService.confirmHotelAddress(payload)
+  }
+
+}

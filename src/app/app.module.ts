@@ -7,13 +7,14 @@ import {environment} from '../environments/environment';
 import {NgxsDispatchPluginModule} from "@ngxs-labs/dispatch-decorator";
 import {NgxsRouterPluginModule} from "@ngxs/router-plugin";
 import {NgxsModule} from "@ngxs/store";
-import {CookieService} from "ngx-cookie-service";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {NgxMaskModule} from "ngx-mask";
+import {InterceptorService} from "./service/interceptor.service";
+import {RegisterStore} from "./data-store/register-store/register.store";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -47,10 +48,11 @@ export function HttpLoaderFactory(http: HttpClient) {
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    RegisterStore
   ],
   providers: [
-    CookieService,
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
   ],
   bootstrap: [AppComponent]
 })

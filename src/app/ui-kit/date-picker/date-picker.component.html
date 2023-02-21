@@ -1,7 +1,7 @@
 <div style="height: 80px">
   <div class="wrapper" (click)="picker.open()"
        [ngClass]="[control.invalid && (control.dirty || control.touched) ? 'error' :'default']">
-    <input class="text-natural-800 font-md-medium"
+    <input class="text-natural-800 font-md-medium" style="font-family: revert"
            type="text"
            [placeholder]="label"
            readonly

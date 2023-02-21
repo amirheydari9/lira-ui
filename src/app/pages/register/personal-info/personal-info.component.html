@@ -1,12 +1,12 @@
 <span class="font-sm-medium text-natural-800 mb-3 d-block" [translate]="'PERSONAL_INFO.TITLE'|translate"></span>
 <form [formGroup]="PersonalInfoForm">
-  <app-text-input [label]="'PERSONAL_INFO.FIRST_NAME'|translate" formControlName="firstname" dir="ltr"></app-text-input>
-  <app-text-input [label]="'PERSONAL_INFO.LAST_NAME'|translate" formControlName="lastname" dir="ltr"></app-text-input>
+  <app-text-input [label]="'PERSONAL_INFO.FIRST_NAME'|translate" formControlName="englishFirstName" dir="ltr"></app-text-input>
+  <app-text-input [label]="'PERSONAL_INFO.LAST_NAME'|translate" formControlName="englishLastName" dir="ltr"></app-text-input>
   <app-text-input [label]="'PERSONAL_INFO.EMAIL'|translate" formControlName="email"></app-text-input>
 </form>
 
 <app-action-bar
   [disabled]="PersonalInfoForm.invalid"
   [confirmLabel]="'PERSONAL_INFO.ACTION_LABEL'|translate"
-  routerLink="/register/passport-info"
+  (confirm)="handleConfirm()"
 ></app-action-bar>

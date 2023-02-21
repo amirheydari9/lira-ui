@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CardTypeFacade} from "../../../data-store/card-type-store/card-type.facade";
 
 @Component({
   selector: 'app-choose-service',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChooseServiceComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public cardTypeFacade: CardTypeFacade
+  ) {
+  }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    try {
+      await this.cardTypeFacade.fetchCardTypeList()
+    } catch (e) {
+      console.log(e)
+    }
   }
 
 }
