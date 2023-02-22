@@ -52,7 +52,7 @@ const routes: Routes = [
       {
         path: 'destination-address',
         loadChildren: () => import('../register/destination-address/destination-address.module').then(m => m.DestinationAddressModule),
-        data: {currentStep: 4, title: 'PAGE_TITLE.DESTINATION_ADDRESS'}
+        data: {currentStep: 4, title: 'PAGE_TITLE.HOTEL_ADDRESS'}
       },
     ]
   }

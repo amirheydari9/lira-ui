@@ -10,6 +10,7 @@ import {TextareaModule} from "../../../ui-kit/textarea/textarea.component";
 import {
   RegisterSuccessDialogModule
 } from "../../../componnet/dialog/register-success-dialog/register-success-dialog.component";
+import {TimePickerModule} from "../../../ui-kit/time-picker/time-picker.component";
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {
     ActionBarModule,
     TextareaModule,
     RegisterSuccessDialogModule,
+    TimePickerModule,
   ]
 })
 export class DestinationAddressModule {

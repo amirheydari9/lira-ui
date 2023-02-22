@@ -31,3 +31,8 @@
 ::ng-deep .mat-datepicker-content-touch .mat-datepicker-content-container {
   height: unset !important;
 }
+
+::ng-deep .timepicker{
+  direction: ltr !important;
+}
+

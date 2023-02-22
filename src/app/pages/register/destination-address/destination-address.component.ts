@@ -24,6 +24,8 @@ export class DestinationAddressComponent implements OnInit {
     this.DestinationAddress = this.fb.group({
       destinationAddress: this.fb.control('', [Validators.required]),
       time: this.fb.control('', [Validators.required]),
+      fromTime: this.fb.control('', [Validators.required]),
+      toTime: this.fb.control('', [Validators.required]),
     })
   }
 

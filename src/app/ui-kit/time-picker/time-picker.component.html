@@ -1,0 +1,27 @@
+<div style="height: 80px">
+  <div class="wrapper" (click)="input.focus()"
+       [ngClass]="[control.invalid && (control.dirty || control.touched) ? 'error' :'default']">
+    <input
+      class="text-natural-800 font-md-medium"
+      readonly
+      #input
+      [placeholder]="label"
+      [ngxTimepicker]="fullTime"
+      [format]="24"
+      (blur)="touched()"
+      [(ngModel)]="value"
+    >
+    <span class="font-sm-regular">{{label}}</span>
+  </div>
+  <div style="height: 12px">
+    <app-field-errors [formField]="control"></app-field-errors>
+  </div>
+</div>
+
+<ngx-material-timepicker
+  #fullTime
+  [preventOverlayClick]="true"
+  [minutesGap]="5"
+  [theme]="timePickerTheme"
+  (timeSet)="onChanged($event)"
+></ngx-material-timepicker>
