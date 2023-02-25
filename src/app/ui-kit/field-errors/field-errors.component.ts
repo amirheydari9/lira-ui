@@ -21,14 +21,8 @@ export class FieldErrorsComponent {
     min: (params) => `مقدار این فیلد نمی تواند کمتر از${params.min} باشد`,
     max: (params) => `مقدار این فیلد نمی تواند بیشتر از${params.max} باشد`,
     pattern: (params) => 'The required pattern is: ' + params.requiredPattern,
-    nationalCode: (params) => params.message,
-    cardNumber: (params) => params.message,
-    cvv2: (params) => params.message,
-    mobile: (params) => params.message,
-    passwordMatch: (params) => params.message,
-    cardPassword: (params) => params.message,
     postalCode: (params) => params.message,
-    transactionAmount: (params) => params.message,
+    whitespace: (params) => params.message,
   };
 
   shouldShowErrors(): boolean {

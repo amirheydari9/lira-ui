@@ -2,16 +2,16 @@
   <app-text-input
     [maxLength]="10"
     [label]="'ADDRESS.POSTAL_CODE'|translate"
-    formControlName="postalCode"
+    formControlName="deliveryPostalCode"
   ></app-text-input>
   <app-textarea
     [placeholder]="'ADDRESS.ADDRESS'|translate"
-    formControlName="address"
+    formControlName="deliveryAddress"
   ></app-textarea>
 </form>
 
 <app-action-bar
   [disabled]="AddressForm.invalid"
   [confirmLabel]="'ADDRESS.ACTION_LABEL'|translate"
-  routerLink="/register/payment"
+  (confirm)="handleConfirm()"
 ></app-action-bar>

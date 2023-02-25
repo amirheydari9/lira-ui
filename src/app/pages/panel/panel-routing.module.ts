@@ -17,12 +17,12 @@ const routes: Routes = [
         loadChildren: () => import('../panel/home/home.module').then(m => m.HomeModule),
       },
       {
-        path: 'choose-service',
-        loadChildren: () => import('../panel/choose-service/choose-service.module').then(m => m.ChooseServiceModule),
+        path: 'gift-cards',
+        loadChildren: () => import('../panel/gift-cards/gift-cards.module').then(m => m.GiftCardsModule),
       },
       {
-        path: 'service/:service',
-        loadChildren: () => import('../panel/service/service.module').then(m => m.ServiceModule),
+        path: 'gift-card/:id',
+        loadChildren: () => import('./gift-card/gift-card.module').then(m => m.GiftCardModule),
       },
       {
         path: 'terms-and-conditions',

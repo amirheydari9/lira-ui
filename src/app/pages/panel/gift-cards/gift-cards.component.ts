@@ -2,11 +2,13 @@ import {Component, OnInit} from '@angular/core';
 import {CardTypeFacade} from "../../../data-store/card-type-store/card-type.facade";
 
 @Component({
-  selector: 'app-choose-service',
-  templateUrl: './choose-service.component.html',
-  styleUrls: ['./choose-service.component.scss']
+  selector: 'app-gift-cards',
+  templateUrl: './gift-cards.component.html',
+  styleUrls: ['./gift-cards.component.scss']
 })
-export class ChooseServiceComponent implements OnInit {
+export class GiftCardsComponent implements OnInit {
+
+  cardUImageLoader: boolean = true
 
   constructor(
     public cardTypeFacade: CardTypeFacade

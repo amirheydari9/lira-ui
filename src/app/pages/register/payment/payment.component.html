@@ -14,18 +14,18 @@
   <span class="text-natural-800 font-sm-medium mb-3" [translate]="'PAYMENT.TEXT_4'"></span>
   <span class="text-natural-800 font-sm-regular" [translate]="'PAYMENT.TEXT_4'"></span>
 </div>
-<span class="text-natural-800 font-sm-medium mb-3 d-block" [translate]="'PAYMENT.TEXT_5'"></span>
+<!--<span class="text-natural-800 font-sm-medium mb-3 d-block" [translate]="'PAYMENT.TEXT_5'"></span>-->
 
-<form [formGroup]="PaymentForm">
-  <div *ngFor="let item of methodsList;let i = index"
-       class="custom-card mb-3 d-flex flex-row justify-content-start align-items-center">
-    <div class="circle_checked_wrapper px-1 ms-2">
-      <input type="radio" formControlName="paymentMethods" [value]="i+1" [id]="item"/>
-      <label [for]="item"></label>
-    </div>
-    <span class="text-natural-800 font-sm-regular" (click)="paymentMethodsCtrl.setValue(i+1)">{{item|translate}}</span>
-  </div>
-</form>
+<!--<form [formGroup]="PaymentForm">-->
+<!--  <div *ngFor="let item of methodsList;let i = index"-->
+<!--       class="custom-card mb-3 d-flex flex-row justify-content-start align-items-center">-->
+<!--    <div class="circle_checked_wrapper px-1 ms-2">-->
+<!--      <input type="radio" formControlName="paymentMethods" [value]="i+1" [id]="item"/>-->
+<!--      <label [for]="item"></label>-->
+<!--    </div>-->
+<!--    <span class="text-natural-800 font-sm-regular" (click)="paymentMethodsCtrl.setValue(i+1)">{{item|translate}}</span>-->
+<!--  </div>-->
+<!--</form>-->
 
 <app-action-bar
   [confirmLabel]="'PAYMENT.ACTION_LABEL'|translate"

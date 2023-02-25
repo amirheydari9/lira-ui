@@ -1,7 +1,7 @@
 ﻿{
   "PAGE_TITLE": {
-    "CHOOSE_SERVICE": "انتخاب سرویس",
-    "SERVICE": "سرویس",
+    "GIFT_CARDS": "کارت های هدیه",
+    "GIFT_CARD": "سرویس",
     "TERMS_AND_CONDITIONS": "قوانین و مقررات",
     "REGISTRATION_PROCESS": "فرآیند ثبت نام",
     "PERSONAL_INFO": "اطلاعات شخصی",
@@ -18,11 +18,11 @@
     "TEXT_2": "امکان خرید، تراکنش های مالی تنها با گوشی همراه",
     "ACTION_LABEL": "مشاهده سرویس های لیرا"
   },
-  "CHOOSE_SERVICE": {
+  "GIFT_CARDS": {
     "TITLE": "سرویس های لیرا",
     "SUB_TITLE": "با توجه به جزئیات سرویس می توانید یکی از سرویس ها را انتخاب کنید"
   },
-  "SERVICE": {
+  "GIFT_CARD": {
     "TEXT_1": "شرایط اعتبار:",
     "TEXT_2": "محدودیت سالانه",
     "TEXT_3": "محدودیت روزانه",

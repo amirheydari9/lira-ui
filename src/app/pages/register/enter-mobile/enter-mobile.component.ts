@@ -17,7 +17,7 @@ export class EnterMobileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.Mobile = this.fb.control('', [Validators.required, CustomValidators.mobile])
+    this.Mobile = this.fb.control('', [Validators.required])
   }
 
 }

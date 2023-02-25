@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://109.230.200.866:8081/',
+  baseUrl: 'http://109.230.200.86:8081/',
   otpLeftTime: 2 * 60,
 };
 

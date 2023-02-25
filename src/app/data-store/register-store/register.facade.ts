@@ -8,6 +8,7 @@ import {Select} from "@ngxs/store";
 import {Observable} from "rxjs";
 import {InquiryRegisterAction, RegisterState} from "./register.store";
 import {IInquiryRegisterRes} from "../../model/interface/inquiry-register-res.interface";
+import {Navigate} from "@ngxs/router-plugin";
 
 
 @Injectable({
@@ -33,8 +34,10 @@ export class RegisterFacade {
     return new InquiryRegisterAction(data)
   }
 
+  @Dispatch()
   async confirmAddress(payload: ConfirmAddressDTO) {
-    await this.registerService.confirmAddress(payload)
+    const data = await this.registerService.confirmAddress(payload)
+    return [new InquiryRegisterAction(data), new Navigate(['/register/payment'])]
   }
 
   async confirmHotelAddress(payload: ConfirmHotelAddressDTO) {

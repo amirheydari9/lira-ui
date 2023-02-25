@@ -29,8 +29,8 @@ export class MainToolbarComponent implements OnInit {
   ]
 
   routes = [
-    {url: '/choose-service', name: "CHOOSE_SERVICE"},
-    {url: '/service', name: "SERVICE"},
+    {url: '/gift-cards', name: "GIFT_CARDS"},
+    {url: '/gift-card', name: "GIFT_CARD"},
     {url: '/terms-and-conditions', name: "TERMS_AND_CONDITIONS"},
     {url: '/registration-process', name: "REGISTRATION_PROCESS"},
   ]

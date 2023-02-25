@@ -22,19 +22,19 @@ export class RegisterService {
   }
 
   async register(payload: RegisterDTO): Promise<IRegisterRes> {
-    return this.http.post<IRegisterRes>(`${this.baseUrl}/api/register`, payload).toPromise()
+    return this.http.post<IRegisterRes>(`${this.baseUrl}api/register`, payload).toPromise()
   }
 
   async inquiryRegister(): Promise<IInquiryRegisterRes> {
-    return this.http.get<IInquiryRegisterRes>(`${this.baseUrl}/api/register/inquiry-register`).toPromise()
+    return this.http.get<IInquiryRegisterRes>(`${this.baseUrl}api/register/inquiry-register`).toPromise()
   }
 
   async confirmAddress(payload: ConfirmAddressDTO): Promise<IConfirmAddressRes> {
-    return this.http.put<IConfirmAddressRes>(`${this.baseUrl}/api/register/confirm-address`, payload).toPromise()
+    return this.http.put<IConfirmAddressRes>(`${this.baseUrl}api/register/confirm-address`, payload).toPromise()
   }
 
   async confirmHotelAddress(payload: ConfirmHotelAddressDTO): Promise<IConfirmHotelAddressRes> {
-    return this.http.put<IConfirmHotelAddressRes>(`${this.baseUrl}/api/register/confirm-hotel-address`, payload).toPromise()
+    return this.http.put<IConfirmHotelAddressRes>(`${this.baseUrl}api/register/confirm-hotel-address`, payload).toPromise()
   }
 
 }

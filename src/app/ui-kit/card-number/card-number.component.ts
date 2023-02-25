@@ -5,7 +5,6 @@ import {FieldErrorModule} from "../field-errors/field-errors.component";
 import {FormControl, FormsModule, NgControl} from "@angular/forms";
 import {BaseControlValueAccessor} from "../../utils/BaseControlValueAccessor";
 import {ConvertNumberToEnglishDirectiveModule} from "../../directive/convert-number-to-english.directive";
-import {CustomValidators} from "../../utils/Custom-Validators";
 
 @Component({
   selector: 'app-card-number',
@@ -28,7 +27,6 @@ export class CardNumberComponent extends BaseControlValueAccessor<string> implem
 
   ngOnInit(): void {
     this.control = this.controlDirective.control as FormControl
-    this.control.addValidators([CustomValidators.cardNumber.bind(this)])
   }
 
   public onChanged(event: Event): void {

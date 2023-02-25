@@ -1,9 +1,10 @@
 import {Component, ElementRef, Input, NgModule, OnInit, Self, ViewChild} from '@angular/core';
 import {BaseControlValueAccessor} from "../../utils/BaseControlValueAccessor";
-import {FormControl, FormsModule, NgControl} from "@angular/forms";
+import {FormControl, FormsModule, NgControl, Validators} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {ConvertNumberToEnglishDirectiveModule} from "../../directive/convert-number-to-english.directive";
 import {FieldErrorModule} from "../field-errors/field-errors.component";
+import {CustomValidators} from "../../utils/Custom-Validators";
 
 @Component({
   selector: 'app-text-input',
@@ -35,11 +36,12 @@ export class TextInputComponent extends BaseControlValueAccessor<string> impleme
 
   ngOnInit(): void {
     this.control = this.controlDirective.control as FormControl
+    this.control.addValidators(CustomValidators.noWhitespace)
   }
 
   public onChanged(event: Event): void {
     const value: string = (event.target as HTMLInputElement).value;
-    this.changed(value);
+    this.changed(value.trim());
   }
 
 }
