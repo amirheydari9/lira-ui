@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
-import {
-  PaymentSuccessDialogComponent
-} from "../../../componnet/dialog/payment-success-dialog/payment-success-dialog.component";
+import {PaymentFacade} from "../../../data-store/payment-store/payment.facade";
 
 @Component({
   selector: 'app-payment',
@@ -21,7 +19,7 @@ export class PaymentComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private bt: MatBottomSheet
+    private paymentFacade: PaymentFacade
   ) {
   }
 
@@ -36,7 +34,7 @@ export class PaymentComponent implements OnInit {
   }
 
 
-  handleConfirm() {
-    this.bt.open(PaymentSuccessDialogComponent)
+  async handleConfirm() {
+    await this.paymentFacade.getPaymentToken()
   }
 }
