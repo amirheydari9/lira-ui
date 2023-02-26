@@ -1,4 +1,4 @@
-export enum RegisterStatus{
+export enum RegisterStatus {
   PRE_REGISTER = 'PRE_REGISTER',
   OPR_REJECTED = 'OPR_REJECTED',
   OPR_ACCEPTED = 'OPR_ACCEPTED',
@@ -6,4 +6,10 @@ export enum RegisterStatus{
   PAYMENT_DONE = 'PAYMENT_DONE',
   HOTEL_ADDRESS_CONFIRMED = 'HOTEL_ADDRESS_CONFIRMED',
   CANCELED = 'CANCELED',
+}
+
+export enum SupportType {
+  NORMAL = "NORMAL",
+  VIP = "VIP",
+  SPECIAL = "SPECIAL"
 }

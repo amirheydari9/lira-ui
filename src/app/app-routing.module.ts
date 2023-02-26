@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterModule)
   },
   {
+    path: 'status',
+    loadChildren: () => import('./pages/status/status.module').then(m => m.StatusModule),
+  },
+  {
     path: 'error',
     loadChildren: () => import('./pages/error/error.module').then((m) => m.ErrorModule)
   },

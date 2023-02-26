@@ -1,4 +1,7 @@
-<div class="row-container">
+<div class="row-container" *ngIf="cardType">
+
+  <app-card [cardType]="cardType"></app-card>
+
   <span class="font-sm-medium text-natural-800 d-block mb-3" [translate]="'GIFT_CARD.TEXT_1'|translate"></span>
   <div class="custom-card d-flex flex-row justify-content-between">
     <div class="d-flex flex flex-column align-items-center">

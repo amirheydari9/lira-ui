@@ -1,0 +1,4 @@
+<app-skeleton [theme]="{height:'150px'}" *ngIf="condition;else elseBack" [count]="count"></app-skeleton>
+<ng-template #elseBack>
+  <ng-content></ng-content>
+</ng-template>

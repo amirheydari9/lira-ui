@@ -1,0 +1,21 @@
+<div class="br-8 position-relative">
+  <app-skeleton [hidden]="!cardUImageLoader" [theme]="{height:'150px'}"></app-skeleton>
+  <img
+    height="150" width="100%" class="br-14 mb-3"
+    [hidden]="cardUImageLoader"
+    (load)="cardUImageLoader=false"
+    [src]="cardType.id===1 ? 'assets/images/gift_card_1.png' : 'assets/images/gift_card_2.png'"/>
+  <div *ngIf="!cardUImageLoader" class="p-3 w-100 position-absolute top-0 right-0 mb-3">
+    <div class="d-flex align-items-center justify-content-between mb-3 mt-4">
+      <div class="d-flex flex-column text-white">
+        <span class="font-md-regular">{{cardType.titleFa}}</span>
+        <span CLASS="font-xs-regular">FARDA BANK</span>
+      </div>
+      <span class="background-white font-xs-medium br-8 p-1 text-natural-500"> مدت اعتبار  {{cardType.expiry}}</span>
+    </div>
+    <div class="d-flex align-items-center justify-content-between text-white">
+      <span class="font-sm-regular">قیمت خرید کارت</span>
+      <span class="font-sm-medium" currency currencyColor="text-white" currencyFont="font-sm-medium">{{cardType.cost|number}}</span>
+    </div>
+  </div>
+</div>

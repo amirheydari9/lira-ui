@@ -31,7 +31,7 @@ const routes: Routes = [
       {
         path: 'registration-process',
         loadChildren: () => import('../panel/registration-process/registration-process.module').then(m => m.RegistrationProcessModule),
-      },
+      }
     ]
   }
 ];

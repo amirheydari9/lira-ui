@@ -4,8 +4,8 @@ import {GiftCardsComponent} from './gift-cards.component';
 import {RouterModule} from "@angular/router";
 import {TranslateModule} from "@ngx-translate/core";
 import {CardTypeStore} from "../../../data-store/card-type-store/card-type.store";
-import {SkeletonModule} from "../../../componnet/skeleton/skeleton.component";
-import {CurrencyModule} from "../../../directive/currency.directive";
+import {CardModule} from "../../../componnet/card/card.component";
+import {LoadingContainerModule} from "../../../componnet/loading-container/loading-container.component";
 
 
 @NgModule({
@@ -14,16 +14,13 @@ import {CurrencyModule} from "../../../directive/currency.directive";
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: GiftCardsComponent
-      }
-    ]),
+    RouterModule.forChild([{
+      path: '', component: GiftCardsComponent
+    }]),
     TranslateModule,
     CardTypeStore,
-    SkeletonModule,
-    CurrencyModule
+    CardModule,
+    LoadingContainerModule
   ]
 })
 export class GiftCardsModule {

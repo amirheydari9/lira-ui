@@ -8,7 +8,7 @@ import {CardTypeFacade} from "../../../data-store/card-type-store/card-type.faca
 })
 export class GiftCardsComponent implements OnInit {
 
-  cardUImageLoader: boolean = true
+  loading: boolean
 
   constructor(
     public cardTypeFacade: CardTypeFacade
@@ -17,9 +17,12 @@ export class GiftCardsComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     try {
+      this.loading = true
       await this.cardTypeFacade.fetchCardTypeList()
     } catch (e) {
       console.log(e)
+    } finally {
+      this.loading = false
     }
   }
 
