@@ -20,6 +20,7 @@ input {
   outline: none;
   height: 100%;
   padding-right: 10px;
+  padding-left: 10px;
 }
 
 input::placeholder {
@@ -30,9 +31,10 @@ span {
   position: absolute;
   top: 0;
   right: 0;
-  transform: translateY(20px);
+  transform: translateY(17px);
   transition-duration: 300ms;
   margin-right: 10px;
+  color: $natural-400;
 }
 
 .wrapper:focus-within > span,
@@ -44,6 +46,18 @@ input:disabled {
   color: $natural-400;
   background-color: inherit;
 }
+
+
+.wrapper:host(input:disabled){
+  border: 1px solid $natural-200;
+  background-color: $natural-400;
+}
+
+.wrapper:host(input.ng-dirty.ng-invalid){
+  border: 1px solid $error;
+}
+
+
 
 .triangle {
   width: 0;

@@ -63,9 +63,10 @@
   },
   "PERSONAL_INFO": {
     "TITLE": "نام و نام خانوادگی خود را به انگلیسی وارد کنید.",
-    "FIRST_NAME": "FIRST NAME",
-    "LAST_NAME": "LAST NAME",
-    "EMAIL": "ایمیل",
+    "INPUT_1":"FIRST NAME",
+    "INPUT_2":"LAST NAME",
+    "INPUT_3":"ایمیل",
+    "INPUT_4":"میزان هزینه ماهانه",
     "ACTION_LABEL": "ادامه"
   },
   "PASSPORT_INFO": {

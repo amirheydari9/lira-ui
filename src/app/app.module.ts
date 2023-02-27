@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -15,9 +15,14 @@ import {ServiceWorkerModule} from '@angular/service-worker';
 import {NgxMaskModule} from "ngx-mask";
 import {InterceptorService} from "./service/interceptor.service";
 import {RegisterStore} from "./data-store/register-store/register.store";
+import {StartupService} from "./service/startup.service";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
+}
+
+export function startupServiceFactory(startupService: StartupService): Function {
+  return () => startupService.load();
 }
 
 @NgModule({
@@ -53,6 +58,12 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+    {
+      provide: APP_INITIALIZER,
+      useFactory: startupServiceFactory,
+      deps: [StartupService],
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

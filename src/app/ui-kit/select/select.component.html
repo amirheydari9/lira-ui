@@ -1,5 +1,6 @@
 <div style="height: 80px">
-  <div class="wrapper d-flex justify-content-between align-items-start" (click)="handleShowItems()">
+  <div class="wrapper d-flex justify-content-between align-items-start" (click)="handleShowItems()"
+       [ngClass]="[control.invalid && (control.dirty || control.touched) ? 'error' :'default']">
     <input
       class="text-natural-800 font-md-medium"
       readonly
@@ -11,6 +12,6 @@
     <div class="triangle"></div>
   </div>
   <div style="height: 12px">
-    <app-field-errors class="font-xxs-regular" [formField]="control"></app-field-errors>
+    <app-field-errors [formField]="control"></app-field-errors>
   </div>
 </div>

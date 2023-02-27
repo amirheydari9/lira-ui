@@ -14,7 +14,7 @@ export class PaymentFacade {
 
   async getPaymentToken() {
     const data = await this.paymentService.getToken()
-    window.open('ipg', '_parent')
+    // window.open('http://localhost:40623/', '_parent')
   }
 
 }

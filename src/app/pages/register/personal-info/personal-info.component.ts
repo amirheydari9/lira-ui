@@ -12,6 +12,12 @@ import {preRegisterUserData} from "../../../config/key";
 export class PersonalInfoComponent implements OnInit {
 
   PersonalInfoForm: FormGroup
+  options = [
+    {name: '1000', value: 1000},
+    {name: '1000', value: 1000},
+    {name: '1000', value: 1000},
+    {name: '1000', value: 1000},
+  ]
 
   constructor(
     private fb: FormBuilder,
@@ -25,6 +31,7 @@ export class PersonalInfoComponent implements OnInit {
       englishFirstName: this.fb.control(null, [Validators.required]),
       englishLastName: this.fb.control(null, [Validators.required]),
       email: this.fb.control(null, [Validators.required, Validators.email]),
+      amount: this.fb.control(null),
     })
     if (this.storageService.getSessionStorage(preRegisterUserData)) {
       this.PersonalInfoForm.patchValue(this.storageService.getSessionStorage(preRegisterUserData))

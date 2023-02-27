@@ -1,11 +1,14 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CustomPreloadStrategyService} from "./service/custom-preload-strategy.service";
+import {RegisterGuard} from "./guard/register.guard";
+import {NotRegisteredGuard} from "./guard/not-registered.guard";
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/panel/panel.module').then(m => m.PanelModule)
+    loadChildren: () => import('./pages/panel/panel.module').then(m => m.PanelModule),
+    canActivate: [NotRegisteredGuard]
   },
   {
     path: 'register',
@@ -14,6 +17,7 @@ const routes: Routes = [
   {
     path: 'status',
     loadChildren: () => import('./pages/status/status.module').then(m => m.StatusModule),
+    canActivate: [RegisterGuard]
   },
   {
     path: 'error',

@@ -20,7 +20,7 @@ export class SelectComponent extends BaseControlValueAccessor<any> implements On
   @Input() searchPlaceholder: string
   @Input() options = []
   @Input() labelKey: string = 'name'
-  @Input() valueKey: string = 'code'
+  @Input() valueKey: string = 'value'
 
   constructor(
     @Self() private controlDirective: NgControl,
@@ -36,7 +36,6 @@ export class SelectComponent extends BaseControlValueAccessor<any> implements On
 
   handleShowItems() {
     const dialog = this.bottomSheet.open(SelectOptionsComponent, {
-      panelClass: 'custom_bottom_sheet',
       data: {
         title: this.title ? this.title : `انتخاب ${this.label}`,
         searchable: this.searchable,

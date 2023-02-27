@@ -2,7 +2,6 @@ import {ChangeDetectorRef, Component, ElementRef, OnInit} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {UpdateService} from "./service/update.service";
 import {NavigationService} from "./service/navigation.service";
-import {RegisterFacade} from "./data-store/register-store/register.facade";
 
 @Component({
   selector: 'app-root',
@@ -20,7 +19,6 @@ export class AppComponent implements OnInit {
     private navigationService: NavigationService,
     private elementRef: ElementRef,
     private updateService: UpdateService,
-    private registerFacade: RegisterFacade
   ) {
     this.updateService.checkForUpdates();
   }

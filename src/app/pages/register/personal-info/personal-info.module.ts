@@ -6,6 +6,7 @@ import {ActionBarModule} from "../../../componnet/action-bar/action-bar.componen
 import {TranslateModule} from "@ngx-translate/core";
 import {ReactiveFormsModule} from "@angular/forms";
 import {InputTextModule} from "../../../ui-kit/text-input/text-input.component";
+import {SelectModule} from "../../../ui-kit/select/select.module";
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {InputTextModule} from "../../../ui-kit/text-input/text-input.component";
     TranslateModule,
     ReactiveFormsModule,
     InputTextModule,
+    SelectModule,
   ]
 })
 export class PersonalInfoModule {
