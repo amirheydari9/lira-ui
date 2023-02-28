@@ -6,6 +6,7 @@
     "REGISTRATION_PROCESS": "فرآیند ثبت نام",
     "PERSONAL_INFO": "اطلاعات شخصی",
     "PASSPORT_INFO": "مشخصات پاسپورت",
+    "UPLOAD_DOCUMENT": "بارگزاری مدارک",
     "ADDRESS": "آدرس محل ارسال کارت",
     "PAYMENT": "پرداخت",
     "ENTER_MOBILE": "دریافت شماره تماس",
@@ -76,6 +77,12 @@
     "input_3": "تاریخ انقضا پاسپورت",
     "ACTION_LABEL": "ادامه"
   },
+  "UPLOAD_DOCUMENT": {
+    "TITLE": "پاسپورت خود را آپلود نمایید",
+    "TEXT_1": "انتخاب از گالری",
+    "TEXT_2": "دوربین",
+    "ACTION_LABEL": "ادامه"
+  },
   "ADDRESS": {
     "POSTAL_CODE": "کد پستی",
     "ADDRESS": "آدرس",
@@ -83,7 +90,7 @@
   },
   "PAYMENT": {
     "TITLE": "پرداخت",
-    "TEXT_1": "فاکتور خرید کارت اونیکس",
+    "TEXT_1": "فاکتور خرید کارت {{value}}",
     "TEXT_2": "تاریخ پرداخت",
     "TEXT_3": "هزینه کارت",
     "TEXT_4": "آدرس محل ارسال",
@@ -116,8 +123,8 @@
     "ACTION_LABEL": "ادامه"
   },
   "COMPONENTS": {
-    "MAIN_TOOLBAR": {
-      "SUPPORT": "پشتیبانی"
+    "SUPPORT": {
+      "TEXT": "پشتیبانی"
     },
     "OTP": {
       "TITLE": "<span class='font-sm-regular'>کد تایید به شماره <span class='font-md-legacy-bold'>{{value}}</span> فرستاده شد.</span>",

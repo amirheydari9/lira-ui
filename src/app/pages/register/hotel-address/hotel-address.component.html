@@ -1,12 +1,12 @@
 <span class="font-sm-regular text-natural-800 mb-3 d-block" [translate]="'HOTEL_ADDRESS.TITLE'"></span>
-<form [formGroup]="DestinationAddress">
+<form [formGroup]="HotelAddressForm">
   <app-textarea
     [placeholder]="'HOTEL_ADDRESS.INPUT_1'|translate"
-    formControlName="destinationAddress"
+    formControlName="hotelAddress"
   ></app-textarea>
   <app-date-picker
     [label]="'HOTEL_ADDRESS.INPUT_2'|translate"
-    formControlName="time"
+    formControlName="date"
   ></app-date-picker>
   <div class="row gx-4">
     <div class="col-6">
@@ -25,7 +25,7 @@
 </form>
 
 <app-action-bar
-  [disabled]="DestinationAddress.invalid"
+  [disabled]="HotelAddressForm.invalid"
   [confirmLabel]="'HOTEL_ADDRESS.ACTION_LABEL'|translate"
   (confirm)="handleConfirm()"
 ></app-action-bar>

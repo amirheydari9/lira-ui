@@ -8,6 +8,7 @@ import {NavigationService} from "../../service/navigation.service";
 import {TitleService} from "../../service/title.service";
 import {SvgIconModule} from "../svg-icon/svg-icon.component";
 import {AutoUnsubscribe} from "../../decorator/AutoUnSubscribe";
+import {SupportModule} from "../support/support.component";
 
 @AutoUnsubscribe({arrayName: 'subscription'})
 @Component({
@@ -79,7 +80,7 @@ export class MainToolbarComponent implements OnInit {
 @NgModule({
   declarations: [MainToolbarComponent],
   exports: [MainToolbarComponent],
-  imports: [CommonModule, MatToolbarModule, RouterModule, SvgIconModule, TranslateModule]
+    imports: [CommonModule, MatToolbarModule, RouterModule, SvgIconModule, TranslateModule, SupportModule]
 })
 export class MainToolbarModule {
 }

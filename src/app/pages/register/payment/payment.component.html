@@ -1,18 +1,18 @@
 <span class="font-sm-regular text-natural-800 mb-3" [translate]="'PAYMENT.TITLE'"></span>
 <div class="custom-card">
-  <span class="text-natural-800 font-sm-medium mb-3" [translate]="'PAYMENT.TEXT_1'"></span>
+  <span class="text-natural-800 font-sm-medium mb-3" [translate]="'PAYMENT.TEXT_1'" [translateParams]="{value:(registerFacade.inquiryRegister$|async).cardType.titleFa}"></span>
   <div class="d-flex align-items-center justify-content-between mb-3">
     <span class="text-natural-800 font-sm-regular" [translate]="'PAYMENT.TEXT_2'"></span>
-    <span class="text-natural-800 font-sm-regular" [translate]="'PAYMENT.TEXT_1'"></span>
+    <span class="text-natural-800 font-sm-regular">{{dateService.today()|jalaliDate:'D MMMM YYYY'}}</span>
   </div>
   <div class="d-flex align-items-center justify-content-between">
     <span class="text-natural-800 font-sm-regular" [translate]="'PAYMENT.TEXT_3'"></span>
-    <span class="text-natural-800 font-sm-bold" [translate]="'PAYMENT.TEXT_3'"></span>
+    <span class="text-success-lira font-sm-bold" currency currencyFont="font-sm-bold" currencyColor="text-success-lira">{{(registerFacade.inquiryRegister$|async).cardType.cost| number}}</span>
   </div>
 </div>
 <div class="custom-card">
   <span class="text-natural-800 font-sm-medium mb-3" [translate]="'PAYMENT.TEXT_4'"></span>
-  <span class="text-natural-800 font-sm-regular" [translate]="'PAYMENT.TEXT_4'"></span>
+  <span class="text-natural-800 font-sm-regular">{{(registerFacade.inquiryRegister$|async).deliveryAddress}}</span>
 </div>
 <!--<span class="text-natural-800 font-sm-medium mb-3 d-block" [translate]="'PAYMENT.TEXT_5'"></span>-->
 
@@ -31,5 +31,3 @@
   [confirmLabel]="'PAYMENT.ACTION_LABEL'|translate"
   (confirm)="handleConfirm()"
 ></app-action-bar>
-
-<!--https://stackoverflow.com/questions/17793183/how-to-replace-window-open-with-a-post-->

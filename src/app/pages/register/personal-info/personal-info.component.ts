@@ -28,8 +28,8 @@ export class PersonalInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.PersonalInfoForm = this.fb.group({
-      englishFirstName: this.fb.control(null, [Validators.required]),
-      englishLastName: this.fb.control(null, [Validators.required]),
+      englishFirstName: this.fb.control(null, [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
+      englishLastName: this.fb.control(null, [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
       email: this.fb.control(null, [Validators.required, Validators.email]),
       amount: this.fb.control(null),
     })

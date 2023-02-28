@@ -20,7 +20,7 @@ export class FieldErrorsComponent {
     maxlength: (params) => `حداکثر ${params.requiredLength} کارکتر وارد نمایید`,
     min: (params) => `مقدار این فیلد نمی تواند کمتر از${params.min} باشد`,
     max: (params) => `مقدار این فیلد نمی تواند بیشتر از${params.max} باشد`,
-    pattern: (params) => 'The required pattern is: ' + params.requiredPattern,
+    pattern: (params) => 'کاراکتر های ورودی معتبر نمی باشد',
     postalCode: (params) => params.message,
     whitespace: (params) => params.message,
   };

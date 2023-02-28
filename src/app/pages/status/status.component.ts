@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {RegisterFacade} from "../../data-store/register-store/register.facade";
+import {RegisterStatus} from "../../config/enum";
 
 @Component({
   selector: 'app-status',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public registerFacade: RegisterFacade
+  ) {
+  }
 
   ngOnInit(): void {
+
+  }
+
+  get RegisterStatus(): typeof RegisterStatus {
+    return RegisterStatus
   }
 
 }

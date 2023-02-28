@@ -9,6 +9,8 @@ import {ConfirmHotelAddressDTO} from "../model/DTO/confirm-hotel-address.DTO";
 import {IConfirmAddressRes} from "../model/interface/confirm-address-res.interface";
 import {IConfirmHotelAddressRes} from "../model/interface/confirm-hotel-address-res.interface";
 import {of} from "rxjs";
+import {UpdateDTO} from "../model/DTO/update.DTO";
+import {IUpdateRes} from "../model/interface/update-res.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +28,11 @@ export class RegisterService {
     return this.http.post<IRegisterRes>(`${this.baseUrl}api/register`, payload).toPromise()
   }
 
-  async inquiryRegister(): Promise<any>{
+  async update(payload: UpdateDTO): Promise<IUpdateRes> {
+    return this.http.put<IUpdateRes>(`${this.baseUrl}api/register/update`, payload).toPromise()
+  }
+
+  async inquiryRegister(): Promise<any> {
     return of({
       "id": 6,
       "mobileNo": null,
@@ -38,7 +44,7 @@ export class RegisterService {
       "passNo": "1234567890",
       "passCreateDate": "2023-02-10",
       "passExpireDate": "2028-02-10",
-      "deliveryAddress": null,
+      "deliveryAddress": 'asaasasaasas',
       "deliveryPostalCode": null,
       "hotelAddress": null,
       "hotelPhoneNumber": null,

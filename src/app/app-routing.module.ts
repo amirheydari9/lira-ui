@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CustomPreloadStrategyService} from "./service/custom-preload-strategy.service";
-import {RegisterGuard} from "./guard/register.guard";
 import {NotRegisteredGuard} from "./guard/not-registered.guard";
+import {StatusGuard} from "./guard/status.guard";
 
 const routes: Routes = [
   {
@@ -17,7 +17,7 @@ const routes: Routes = [
   {
     path: 'status',
     loadChildren: () => import('./pages/status/status.module').then(m => m.StatusModule),
-    canActivate: [RegisterGuard]
+    canActivate: [StatusGuard]
   },
   {
     path: 'error',

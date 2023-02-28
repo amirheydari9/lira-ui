@@ -2,12 +2,12 @@ import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
 import {map, Observable} from 'rxjs';
 import {RegisterFacade} from "../data-store/register-store/register.facade";
+import {RegisterStatus} from "../config/enum";
 
 @Injectable({
   providedIn: 'root'
 })
-export class NotRegisteredGuard implements CanActivate {
-
+export class PersonalInfoGuard implements CanActivate {
   constructor(
     private registerFacade: RegisterFacade,
     private router: Router
@@ -20,9 +20,11 @@ export class NotRegisteredGuard implements CanActivate {
 
     return this.registerFacade.inquiryRegister$.pipe(
       map((data) => {
-        if (data) this.router.navigate(['/status'])
+        if (data && data.registerStatus !== RegisterStatus.OPR_REJECTED) this.router.navigate(['/status'])
         return true
       })
     )
+
   }
+
 }

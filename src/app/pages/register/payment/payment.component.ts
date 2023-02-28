@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {PaymentFacade} from "../../../data-store/payment-store/payment.facade";
+import {RegisterFacade} from "../../../data-store/register-store/register.facade";
+import {DateService} from "../../../service/date.service";
 
 @Component({
   selector: 'app-payment',
@@ -19,7 +21,9 @@ export class PaymentComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private paymentFacade: PaymentFacade
+    private paymentFacade: PaymentFacade,
+    public registerFacade: RegisterFacade,
+    public dateService: DateService
   ) {
   }
 

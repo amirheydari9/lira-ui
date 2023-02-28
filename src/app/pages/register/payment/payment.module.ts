@@ -8,6 +8,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {
   PaymentSuccessDialogModule
 } from "../../../componnet/dialog/payment-success-dialog/payment-success-dialog.component";
+import {CurrencyModule} from "../../../directive/currency.directive";
+import {JalaliDatePipeModule} from "../../../pipe/jalali-date.pipe";
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import {
     ActionBarModule,
     ReactiveFormsModule,
     PaymentSuccessDialogModule,
+    CurrencyModule,
+    JalaliDatePipeModule,
   ]
 })
 export class PaymentModule {

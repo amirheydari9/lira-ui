@@ -23,15 +23,16 @@ export class RegisterFacade {
 
   @Select(RegisterState.inquiryRegister) inquiryRegister$: Observable<IInquiryRegisterRes>
 
-
-  async register(payload: RegisterDTO) {
-    await this.registerService.register(payload)
-  }
-
   @Dispatch()
   async inquiryRegister() {
     const data = await this.registerService.inquiryRegister()
     return new InquiryRegisterAction(data)
+  }
+
+  @Dispatch()
+  async register(payload: RegisterDTO) {
+    const data = await this.registerService.register(payload)
+    return [new InquiryRegisterAction(data), new Navigate(['/status'])]
   }
 
   @Dispatch()
@@ -40,8 +41,10 @@ export class RegisterFacade {
     return [new InquiryRegisterAction(data), new Navigate(['/register/payment'])]
   }
 
+  @Dispatch()
   async confirmHotelAddress(payload: ConfirmHotelAddressDTO) {
-    await this.registerService.confirmHotelAddress(payload)
+    const data = await this.registerService.confirmHotelAddress(payload)
+    return [new InquiryRegisterAction(data), new Navigate(['/status'])]
   }
 
 }

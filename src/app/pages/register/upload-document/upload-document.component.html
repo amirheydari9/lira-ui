@@ -1,0 +1,41 @@
+<span class="font-sm-medium text-natural-800 mb-3 d-block" [translate]="'UPLOAD_DOCUMENT.TITLE'|translate"></span>
+
+<div class="d-flex flex-column justify-content-center p-4 mt-3">
+
+  <div class="d-flex flex-column justify-content-between mb-4 position-relative" style="height: 230px;">
+    <div class="d-flex justify-content-between align-items-center">
+      <app-svg-icon width="32" height="37" svg="vector_1"></app-svg-icon>
+      <app-svg-icon width="32" height="37" svg="vector_2"></app-svg-icon>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <app-svg-icon width="32" height="37" svg="vector_3"></app-svg-icon>
+      <app-svg-icon width="32" height="37" svg="vector_4"></app-svg-icon>
+    </div>
+    <img [src]="imageSrc ? imageSrc : defaultSrc" width="100%" height="100%" class="position-absolute p-4 br-4"/>
+  </div>
+
+
+  <div class="d-flex align-items-center justify-content-between">
+
+    <div class="d-flex align-items-center justify-content-center flex-grow-1" (click)="file.click()">
+      <app-svg-icon class="ms-1"></app-svg-icon>
+      <span class="text-primary font-sm-medium" [translate]="'UPLOAD_DOCUMENT.TEXT_1'|translate"></span>
+      <input #file type="file" accept="image/*" class="d-none" (change)="handleChangeFile($event)"/>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center flex-grow-1" (click)="camera.click()">
+      <span class="text-primary font-sm-medium" [translate]="'UPLOAD_DOCUMENT.TEXT_2'|translate"></span>
+      <input #camera (change)="handleChangeFile($event)" type="file" accept="image/*" capture="environment" class="d-none"/>
+    </div>
+
+  </div>
+
+</div>
+
+
+<app-action-bar
+  [disabled]="!imageSrc"
+  [confirmLabel]="'UPLOAD_DOCUMENT.ACTION_LABEL'|translate"
+  (confirm)="handleConfirm()"
+></app-action-bar>
+
