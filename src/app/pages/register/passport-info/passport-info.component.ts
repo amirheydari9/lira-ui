@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MatBottomSheet} from "@angular/material/bottom-sheet";
 import {preRegisterUserData} from "../../../config/key";
 import {StorageService} from "../../../service/storage.service";
 import {AutoUnsubscribe} from "../../../decorator/AutoUnSubscribe";
@@ -19,7 +18,6 @@ export class PassportInfoComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private bt: MatBottomSheet,
     private storageService: StorageService,
   ) {
   }
