@@ -30,8 +30,8 @@ export class HotelAddressComponent implements OnInit {
   async handleConfirm() {
     const payload = new ConfirmHotelAddressDTO(
       this.HotelAddressForm.controls['hotelAddress'].value,
-      `${this.HotelAddressForm.controls['date'].value} ${this.HotelAddressForm.controls['fromTime'].value}`,
-      `${this.HotelAddressForm.controls['date'].value} ${this.HotelAddressForm.controls['toTime'].value}`,
+      `${this.HotelAddressForm.controls['date'].value}T${this.HotelAddressForm.controls['fromTime'].value}:00`,
+      `${this.HotelAddressForm.controls['date'].value}T${this.HotelAddressForm.controls['toTime'].value}:00`,
     )
     await this.registerFacade.confirmHotelAddress(payload)
   }
