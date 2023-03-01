@@ -21,14 +21,14 @@ export class AddressComponent implements OnInit {
 
   ngOnInit(): void {
     this.AddressForm = this.fb.group({
-      deliveryPostalCode: this.fb.control('', [Validators.required, CustomValidators.postalCode]),
-      deliveryAddress: this.fb.control('', [Validators.required]),
+      deliveryPostalCode: this.fb.control(null, [Validators.required, CustomValidators.postalCode]),
+      deliveryAddress: this.fb.control(null, [Validators.required]),
     })
   }
 
   async handleConfirm() {
     const payload = new ConfirmAddressDTO(
-      this.AddressForm.controls['deliveryPostalCode'].value, this.AddressForm.controls['deliveryAddress'].value
+      this.AddressForm.controls['deliveryAddress'].value, this.AddressForm.controls['deliveryPostalCode'].value
     )
     await this.registerFacade.confirmAddress(payload)
   }
