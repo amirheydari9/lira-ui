@@ -13,3 +13,21 @@ export enum SupportType {
   VIP = "VIP",
   SPECIAL = "SPECIAL"
 }
+
+export enum TransactionState {
+  CanceledByUser = "CanceledByUser",
+  OK = "OK",
+  Failed = "Failed",
+  SessionIsNull = "SessionIsNull",
+  InvalidParameters = "InvalidParameters",
+  MerchantIpAddressIsInvalid = "MerchantIpAddressIsInvalid",
+  TokenNotFound = "TokenNotFound",
+  TokenRequired = "TokenRequired",
+  TerminalNotFound = "TerminalNotFound"
+}
+
+export enum PaymentStatus {
+  DONE = "DONE",
+  IN_PROGRESS = "IN_PROGRESS",
+  FAILED = "FAILED",
+}
