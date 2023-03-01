@@ -1,10 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {CardTypeFacade} from "../../../data-store/card-type-store/card-type.facade";
 import {FetchCardTypeDTO} from "../../../model/DTO/fetch-card-type.DTO";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ICardTypeRes} from "../../../model/interface/card-type-res.interface";
 import {AutoUnsubscribe} from "../../../decorator/AutoUnSubscribe";
 import {Subscription} from "rxjs";
+import {preRegisterUserData} from "../../../config/key";
+import {StorageService} from "../../../service/storage.service";
 
 @AutoUnsubscribe()
 @Component({
@@ -20,7 +22,9 @@ export class GiftCardComponent implements OnInit {
 
   constructor(
     public cardTypeFacade: CardTypeFacade,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private storageService: StorageService,
+    private router: Router
   ) {
   }
 
@@ -34,5 +38,13 @@ export class GiftCardComponent implements OnInit {
     } finally {
       this.loading = false
     }
+  }
+
+  handleConfirm() {
+    this.storageService.setSessionStorage(preRegisterUserData, {
+      ...this.storageService.getSessionStorage(preRegisterUserData),
+      cardTypeId: +this.activatedRoute.snapshot.params['id']
+    })
+    this.router.navigate(['/terms-and-conditions'])
   }
 }

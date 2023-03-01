@@ -5,11 +5,8 @@ import {RouterModule} from "@angular/router";
 import {TranslateModule} from "@ngx-translate/core";
 import {ActionBarModule} from "../../../componnet/action-bar/action-bar.component";
 import {ReactiveFormsModule} from "@angular/forms";
-import {
-  PaymentSuccessDialogModule
-} from "../../../componnet/dialog/payment-success-dialog/payment-success-dialog.component";
-import {CurrencyModule} from "../../../directive/currency.directive";
 import {JalaliDatePipeModule} from "../../../pipe/jalali-date.pipe";
+import {CurrencyModule} from "../../../directive/currency.directive";
 
 
 @NgModule({
@@ -25,7 +22,6 @@ import {JalaliDatePipeModule} from "../../../pipe/jalali-date.pipe";
     TranslateModule,
     ActionBarModule,
     ReactiveFormsModule,
-    PaymentSuccessDialogModule,
     CurrencyModule,
     JalaliDatePipeModule,
   ]

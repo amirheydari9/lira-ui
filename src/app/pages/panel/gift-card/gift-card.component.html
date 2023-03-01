@@ -51,5 +51,5 @@
 <app-action-bar
   [showDivider]="true"
   [confirmLabel]="'GIFT_CARD.ACTION_LABEL'|translate"
-  routerLink="/terms-and-conditions"
+  (confirm)="handleConfirm()"
 ></app-action-bar>

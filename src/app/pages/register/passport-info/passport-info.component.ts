@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatBottomSheet} from "@angular/material/bottom-sheet";
-import {UploadDocumentComponent} from "../../../componnet/dialog/upload-document/upload-document.component";
 import {preRegisterUserData} from "../../../config/key";
 import {StorageService} from "../../../service/storage.service";
 import {AutoUnsubscribe} from "../../../decorator/AutoUnSubscribe";
@@ -42,7 +41,4 @@ export class PassportInfoComponent implements OnInit {
     })
   }
 
-  handleConfirm() {
-    this.bt.open(UploadDocumentComponent)
-  }
 }

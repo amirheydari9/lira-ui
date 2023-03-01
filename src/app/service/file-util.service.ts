@@ -4,7 +4,7 @@ import imageCompression from "browser-image-compression";
 @Injectable({
   providedIn: 'root'
 })
-export class FileService {
+export class FileUtilService {
 
   constructor() {
   }
@@ -32,7 +32,7 @@ export class FileService {
 
   async compressImage(file): Promise<Blob> {
     const options = {
-      maxSizeMB: 1,
+      maxSizeMB: 10,
       maxWidthOrHeight: 1024,
       useWebWorker: true
     }

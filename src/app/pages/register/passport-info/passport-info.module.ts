@@ -7,8 +7,6 @@ import {InputTextModule} from "../../../ui-kit/text-input/text-input.component";
 import {ActionBarModule} from "../../../componnet/action-bar/action-bar.component";
 import {TranslateModule} from "@ngx-translate/core";
 import {DatePickerModule} from "../../../ui-kit/date-picker/date-picker.component";
-import {UploadDocumentModule} from "../../../componnet/dialog/upload-document/upload-document.component";
-
 
 @NgModule({
   declarations: [
@@ -25,7 +23,6 @@ import {UploadDocumentModule} from "../../../componnet/dialog/upload-document/up
     ActionBarModule,
     TranslateModule,
     DatePickerModule,
-    UploadDocumentModule
   ]
 })
 export class PassportInfoModule {

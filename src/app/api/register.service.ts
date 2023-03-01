@@ -33,30 +33,30 @@ export class RegisterService {
   }
 
   async inquiryRegister(): Promise<any> {
-    return of({
-      "id": 6,
-      "mobileNo": null,
-      "persianFirstName": "آناهیتا",
-      "persianLastName": "زمانی",
-      "englishFirstName": "Anahita",
-      "englishLastName": "Zamani",
-      "email": "aa@aa.aa",
-      "passNo": "1234567890",
-      "passCreateDate": "2023-02-10",
-      "passExpireDate": "2028-02-10",
-      "deliveryAddress": 'asaasasaasas',
-      "deliveryPostalCode": null,
-      "hotelAddress": null,
-      "hotelPhoneNumber": null,
-      "passImage": "passports/09364936401.png",
-      "cardType": {
-        "id": 1,
-        "title": "pink",
-        "cost": 10000
-      },
-      "registerStatus": "PRE_REGISTER"
-    }).pipe().toPromise()
-    // return this.http.get<IInquiryRegisterRes>(`${this.baseUrl}api/register/inquiry-register`).toPromise()
+    // return of({
+    //   "id": 6,
+    //   "mobileNo": null,
+    //   "persianFirstName": "آناهیتا",
+    //   "persianLastName": "زمانی",
+    //   "englishFirstName": "Anahita",
+    //   "englishLastName": "Zamani",
+    //   "email": "aa@aa.aa",
+    //   "passNo": "1234567890",
+    //   "passCreateDate": "2023-02-10",
+    //   "passExpireDate": "2028-02-10",
+    //   "deliveryAddress": 'asaasasaasas',
+    //   "deliveryPostalCode": null,
+    //   "hotelAddress": null,
+    //   "hotelPhoneNumber": null,
+    //   "passImage": "passports/09364936401.png",
+    //   "cardType": {
+    //     "id": 1,
+    //     "title": "pink",
+    //     "cost": 10000
+    //   },
+    //   "registerStatus": "PRE_REGISTER"
+    // }).pipe().toPromise()
+    return this.http.get<IInquiryRegisterRes>(`${this.baseUrl}api/register/inquiry-register`).toPromise()
   }
 
   async confirmAddress(payload: ConfirmAddressDTO): Promise<IConfirmAddressRes> {

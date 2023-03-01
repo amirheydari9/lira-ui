@@ -29,6 +29,12 @@ const routes: Routes = [
         canActivate: [PersonalInfoGuard]
       },
       {
+        path: 'upload-document',
+        loadChildren: () => import('../register/upload-document/upload-document.module').then(m => m.UploadDocumentModule),
+        data: {currentStep: 1, title: 'PAGE_TITLE.PASSPORT_INFO'},
+        canActivate: [PersonalInfoGuard]
+      },
+      {
         path: 'address',
         loadChildren: () => import('../register/address/address.module').then(m => m.AddressModule),
         data: {currentStep: 2, title: 'PAGE_TITLE.ADDRESS'},

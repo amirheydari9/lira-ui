@@ -39,7 +39,6 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   handleConfirm() {
-    console.log(this.PersonalInfoForm.getRawValue())
     this.storageService.setSessionStorage(preRegisterUserData, {
       ...this.storageService.getSessionStorage(preRegisterUserData),
       ...this.PersonalInfoForm.getRawValue()
