@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
-import {Observable} from 'rxjs';
+import {map, Observable} from 'rxjs';
+import {RegisterFacade} from "../data-store/register-store/register.facade";
+import {RegisterStatus} from "../config/enum";
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +10,7 @@ import {Observable} from 'rxjs';
 export class PaymentSuccessGuard implements CanActivate {
 
   constructor(
+    private registerFacade: RegisterFacade,
     private router: Router
   ) {
   }
@@ -15,7 +18,6 @@ export class PaymentSuccessGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log(route.queryParams['MID'])
     if (
       route.queryParams.hasOwnProperty('MID') && route.queryParams['MID']
       && route.queryParams.hasOwnProperty('State') && route.queryParams['State']
@@ -32,9 +34,14 @@ export class PaymentSuccessGuard implements CanActivate {
       && route.queryParams.hasOwnProperty('Token') && route.queryParams['Token']
       && route.queryParams.hasOwnProperty('HashedCardNumber') && route.queryParams['HashedCardNumber']
     ) {
-      return true
+      return this.registerFacade.inquiryRegister$.pipe(
+        map((data) => {
+          if (!data || (data && data.registerStatus !== RegisterStatus.ADDRESS_CONFIRMED)) this.router.navigate(['/status'])
+          return true
+        })
+      )
     }
-    return this.router.navigate(['/error/not-found'])
+    return this.router.navigate(['/status'])
   }
 
 }
