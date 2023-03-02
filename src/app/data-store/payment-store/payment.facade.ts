@@ -15,17 +15,18 @@ export class PaymentFacade {
   async getPaymentToken() {
     const data = await this.paymentService.getToken()
     const form = document.createElement('form')
-    form.action = data.ipgUrl
+    form.setAttribute('method','POST')
+    form.setAttribute('action',data.ipgUrl)
+    form.setAttribute('target','_self')
     // form.action = "https://sep.shaparak.ir/OnlinePG/OnlinePG"
-    form.method = 'post'
     const tokenInput = document.createElement("input");
-    tokenInput.name = "Token";
-    tokenInput.type = "hidden";
-    tokenInput.value = data.inputData.token
+    tokenInput.setAttribute('name','Token')
+    tokenInput.setAttribute('type','hidden')
+    tokenInput.setAttribute('value', data.inputData.token)
     const getMethodInput = document.createElement("input");
-    getMethodInput.name = "GetMethod";
-    getMethodInput.type = "text";
-    getMethodInput.value = "true";
+    getMethodInput.setAttribute('name','GetMethod')
+    getMethodInput.setAttribute('type','text')
+    getMethodInput.setAttribute('value', 'true')
     form.style.display = 'none';
     document.body.appendChild(form);
     form.submit();
