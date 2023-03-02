@@ -46,10 +46,13 @@
     <hr/>
     <span class="text-natural-800 font-sm-medium " [translate]="'GIFT_CARD.TEXT_11'|translate"></span>
   </div>
+
+  <app-action-bar
+    [showDivider]="true"
+    [confirmLabel]="'GIFT_CARD.ACTION_LABEL'|translate:{value:cardType.titleFa}"
+    (confirm)="handleConfirm()"
+  ></app-action-bar>
+
 </div>
 
-<app-action-bar
-  [showDivider]="true"
-  [confirmLabel]="'GIFT_CARD.ACTION_LABEL'|translate"
-  (confirm)="handleConfirm()"
-></app-action-bar>
+
