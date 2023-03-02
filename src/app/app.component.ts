@@ -23,15 +23,10 @@ export class AppComponent implements OnInit {
     this.updateService.checkForUpdates();
   }
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
     this.navigationService.startSaveHistory()
     this.elementRef.nativeElement.removeAttribute('ng-version')
-    // await this.registerFacade.inquiryRegister()
-    // this.registerFacade.inquiryRegister$.subscribe(data => {
-    //   if (data) {
-    //     this.router.navigate(['/service/2'])
-    //   }
-    // })
+
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         if (this.activatedRoute.children) {
