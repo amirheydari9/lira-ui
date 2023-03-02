@@ -27,6 +27,8 @@ export class PaymentFacade {
     getMethodInput.setAttribute('name','GetMethod')
     getMethodInput.setAttribute('type','text')
     getMethodInput.setAttribute('value', 'true')
+    form.appendChild(tokenInput)
+    form.appendChild(getMethodInput)
     form.style.display = 'none';
     document.body.appendChild(form);
     form.submit();
