@@ -3,7 +3,7 @@
   <app-text-input [label]="'PERSONAL_INFO.INPUT_1'|translate" formControlName="englishFirstName" dir="ltr"></app-text-input>
   <app-text-input [label]="'PERSONAL_INFO.INPUT_2'|translate" formControlName="englishLastName" dir="ltr"></app-text-input>
   <app-text-input [label]="'PERSONAL_INFO.INPUT_3'|translate" formControlName="email"></app-text-input>
-  <app-select [label]="'PERSONAL_INFO.INPUT_4'|translate" [options]="options" formControlName="amount"></app-select>
+  <app-select [label]="'PERSONAL_INFO.INPUT_4'|translate" [options]="options" [clearable]="true" formControlName="amount"></app-select>
 </form>
 
 <app-action-bar

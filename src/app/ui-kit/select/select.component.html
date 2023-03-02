@@ -1,5 +1,5 @@
 <div style="height: 80px">
-  <div class="wrapper d-flex justify-content-between align-items-start" (click)="handleShowItems()"
+  <div class="wrapper d-flex justify-content-between align-items-baseline" (click)="handleShowItems()"
        [ngClass]="[control.invalid && (control.dirty || control.touched) ? 'error' :'default']">
     <input
       class="text-natural-800 font-md-medium"
@@ -9,7 +9,8 @@
       (blur)="touched()"
     >
     <span class="font-sm-regular">{{label}}</span>
-    <div class="triangle"></div>
+    <app-svg-icon *ngIf="clearable && value" svg="close" (click)="handleClear($event)"></app-svg-icon>
+    <div class="triangle me-1"></div>
   </div>
   <div style="height: 12px">
     <app-field-errors [formField]="control"></app-field-errors>

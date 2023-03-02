@@ -1,11 +1,22 @@
-<div class="wrapper" [ngClass]="[bgColor ? bgColor :'background-white']">
-  <app-svg-icon class="row-container" svg="close" (click)="handleCloseDialog()"></app-svg-icon>
-  <div class="content" [class.row-container]="hasPadding">
-    <ng-content></ng-content>
+<!--<div class="wrapper" [ngClass]="[bgColor ? bgColor :'background-white']">-->
+<!--  <app-svg-icon class="row-container" svg="close" (click)="handleCloseDialog()"></app-svg-icon>-->
+<!--  <div class="content" [class.row-container]="hasPadding">-->
+<!--    <ng-content></ng-content>-->
+<!--  </div>-->
+<!--  <div class="position-sticky bottom-0 w-100">-->
+<!--    <ng-content select="[action]"></ng-content>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="content_container">
+  <div class="d-flex justify-content-start align-items-center mt-3">
+    <span *ngIf="title" class="text-1 font-md-legacy-bold">{{title}}</span>
+    <app-svg-icon [ngClass]="'me-auto'" *ngIf="closeable" svg="close" (click)="handleCloseDialog()"></app-svg-icon>
   </div>
-  <div class="position-sticky bottom-0 w-100">
-    <ng-content select="[action]"></ng-content>
-  </div>
+</div>
+
+<div class="overflow-auto" [ngClass]="[ contentClass ? contentClass : 'row-container']">
+  <ng-content></ng-content>
 </div>
 
 <app-action-bar

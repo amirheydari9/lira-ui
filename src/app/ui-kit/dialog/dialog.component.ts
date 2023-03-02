@@ -22,7 +22,7 @@ export class DialogComponent implements OnInit {
 
   @Input() hasPadding: boolean = true
   @Input() bgColor: string
-
+  @Input() title: string
   @Input() disabled: boolean;
   @Input() confirmLabel: string = 'تایید'
   @Input() cancelLabel: string = 'انصراف'
@@ -64,7 +64,7 @@ export class DialogComponent implements OnInit {
   providers: [
     {
       provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS, useValue: {
-        panelClass: 'full_height_bottom_sheet',
+        panelClass: 'custom_bottom_sheet',
         disableClose: true,
         hasBackdrop: true,
         autoFocus: false

@@ -13,10 +13,13 @@ export class PersonalInfoComponent implements OnInit {
 
   PersonalInfoForm: FormGroup
   options = [
-    {name: '1000', value: 1000},
-    {name: '1000', value: 1000},
-    {name: '1000', value: 1000},
-    {name: '1000', value: 1000},
+    {name: '10 میلیون تومان', value: 1000},
+    {name: '20 میلیون تومان', value: 2000},
+    {name: '30 میلیون تومان', value: 3000},
+    {name: '40 میلیون تومان', value: 4000},
+    {name: '50 میلیون تومان', value: 500},
+    {name: '60 میلیون تومان', value: 600},
+    {name: '70 میلیون تومان', value: 700},
   ]
 
   constructor(

@@ -18,6 +18,7 @@ export class SelectComponent extends BaseControlValueAccessor<any> implements On
   @Input() title: string
   @Input() searchable: boolean
   @Input() searchPlaceholder: string
+  @Input() clearable: boolean
   @Input() options = []
   @Input() labelKey: string = 'name'
   @Input() valueKey: string = 'value'
@@ -52,5 +53,11 @@ export class SelectComponent extends BaseControlValueAccessor<any> implements On
         this.writeValue(data[this.labelKey])
       }
     })
+  }
+
+  handleClear($event: MouseEvent) {
+    $event.stopPropagation()
+    this.changed(null)
+    this.writeValue(null)
   }
 }
