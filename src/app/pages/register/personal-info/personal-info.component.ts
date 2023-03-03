@@ -34,7 +34,7 @@ export class PersonalInfoComponent implements OnInit {
       englishFirstName: this.fb.control(null, [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
       englishLastName: this.fb.control(null, [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
       email: this.fb.control(null, [Validators.required, Validators.email]),
-      amount: this.fb.control(null),
+      estimatedCost: this.fb.control(null),
     })
     if (this.storageService.getSessionStorage(preRegisterUserData)) {
       this.PersonalInfoForm.patchValue(this.storageService.getSessionStorage(preRegisterUserData))

@@ -33,6 +33,7 @@ export class InterceptorService implements HttpInterceptor {
     if (!request.url.startsWith('/assets')) {
       this.appConfigService.setLoading(true)
       const token = this.tokenStorageService.getToken();
+      // const token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiIwOTEyNTAzMjg2NiIsIm1vYmlsZU51bWJlciI6IjA5MTI1MDMyODY2IiwiaWF0IjoxODE2MjM5MDIyfQ.RdZGuQelu3KT2eApE6dgt76hbUgYaEkdBR2W3oowHq_IwlRcBPLbKXGu5uCuh82pMQPB4-TUpeSm_qEDHSQQDQSdentK7JSefE9QqNyKPVRsH8WExHpRrDixHu3VDYe7nPTF5_iDrnoIuRgO_oCNPEkaBmMvONcf0wlAzmRDdrZyHbM4GliIl_dKhDo1ITFj5XRjLHmDGyu5Fzi2OdeUEf93YCuszngbs6n3lZS_GZrr9C5K7-8N6lB795Q0vIjBbVfQMrdzW2tp0CFEnHB5WDNRJL-ceKCw5TsWb7tMLHXpwrbsf1j6RNXIDJewEbv2tg7Rb6_46Rc6ZhujXRcZTQ'
       if (token) {
         request = this.addTokenHeader(request, token)
       }

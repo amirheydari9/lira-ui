@@ -41,7 +41,7 @@ export class RegisterService {
     //   "englishFirstName": "Anahita",
     //   "englishLastName": "Zamani",
     //   "email": "aa@aa.aa",
-    //   "passNo": "1234567890",
+    //   "passNo": "123456789",
     //   "passCreateDate": "2023-02-10",
     //   "passExpireDate": "2028-02-10",
     //   "deliveryAddress": 'asaasasaasas',
@@ -54,7 +54,7 @@ export class RegisterService {
     //     "title": "pink",
     //     "cost": 10000
     //   },
-    //   "registerStatus": "PRE_REGISTER"
+    //   "registerStatus": "OPR_REJECTED"
     // }).pipe().toPromise()
     return this.http.get<IInquiryRegisterRes>(`${this.baseUrl}api/register/inquiry-register`).toPromise()
   }

@@ -19,6 +19,6 @@ export class FileService {
   async upload(payload: UploadFileDTO): Promise<IUploadFileRes> {
     const formData = new FormData();
     formData.append("file", payload.file);
-    return this.http.put<IUploadFileRes>(`${this.baseUrl}api/file`, formData, {headers: {'content-type': 'multipart/form-data'}}).toPromise()
+    return this.http.post<IUploadFileRes>(`${this.baseUrl}api/file`, formData).toPromise()
   }
 }
