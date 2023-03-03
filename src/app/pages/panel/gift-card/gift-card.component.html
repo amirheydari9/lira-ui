@@ -5,47 +5,74 @@
   <span class="font-sm-medium text-natural-800 d-block mb-3" [translate]="'GIFT_CARD.TEXT_1'|translate"></span>
   <div class="custom-card d-flex flex-row justify-content-between">
     <div class="d-flex flex flex-column align-items-center">
-      <span class="text-natural-800 font-sm-medium mb-2">{{120|number}}</span>
+      <span class="text-natural-800 font-sm-medium mb-2">{{cardType.monthlyLimit}}</span>
       <span class="font-sm-regular text-natural-800 d-block" [translate]="'GIFT_CARD.TEXT_2'|translate"></span>
     </div>
     <div class="d-flex flex flex-column align-items-center">
-      <span class="text-natural-800 font-sm-medium mb-2">{{120|number}}</span>
+      <span class="text-natural-800 font-sm-medium mb-2">{{cardType.dailyLimit}}</span>
       <span class="font-sm-regular text-natural-800 d-block" [translate]="'GIFT_CARD.TEXT_3'|translate"></span>
     </div>
     <div class="d-flex flex flex-column align-items-center">
-      <span class="text-natural-800 font-sm-medium mb-2">{{120|number}}</span>
+      <span class="text-natural-800 font-sm-medium mb-2"></span>
       <span class="font-sm-regular text-natural-800 d-block" [translate]="'GIFT_CARD.TEXT_4'|translate"></span>
     </div>
   </div>
   <span class="font-sm-medium text-natural-800 d-block mb-3" [translate]="'GIFT_CARD.TEXT_5'|translate"></span>
-  <div class="custom-card">
-    <div class="d-flex flex-column">
-      <span class="text-natural-800 font-sm-medium mb-2" [translate]="'GIFT_CARD.TEXT_6'|translate"></span>
-      <span class="text-natural-400 font-sm-regular" [translate]="'GIFT_CARD.TEXT_6_SUB'|translate"></span>
+  <div class="custom-card mb-3">
+
+    <ng-container *ngIf="cardType.atm">
+      <div class="d-flex flex-column">
+        <span class="text-natural-800 font-sm-medium mb-2" [translate]="'GIFT_CARD.TEXT_6'|translate"></span>
+        <span class="text-natural-400 font-sm-regular" [translate]="'GIFT_CARD.TEXT_6_SUB'|translate"></span>
+      </div>
+      <hr/>
+    </ng-container>
+
+    <ng-container *ngIf="cardType.atm">
+      <div class="d-flex flex-column">
+        <span class="text-natural-800 font-sm-medium mb-2" [translate]="'GIFT_CARD.TEXT_7'|translate"></span>
+        <!--      <span class="text-natural-400 font-sm-regular" [translate]="'GIFT_CARD.TEXT_7_SUB'|translate"></span>-->
+      </div>
+      <hr/>
+    </ng-container>
+
+    <ng-container *ngIf="cardType.ipg">
+      <div class="d-flex flex-column">
+        <span class="text-natural-800 font-sm-medium mb-2" [translate]="'GIFT_CARD.TEXT_8'|translate"></span>
+        <!--      <span class="text-natural-400 font-sm-regular" [translate]="'GIFT_CARD.TEXT_8_SUB'|translate"></span>-->
+      </div>
+      <hr/>
+    </ng-container>
+
+    <ng-container *ngIf="cardType.pos">
+      <div class="d-flex flex-column">
+        <span class="text-natural-800 font-sm-medium mb-2" [translate]="'GIFT_CARD.TEXT_9'|translate"></span>
+        <!--      <span class="text-natural-400 font-sm-regular" [translate]="'GIFT_CARD.TEXT_9_SUB'|translate"></span>-->
+      </div>
+      <hr/>
+    </ng-container>
+
+    <ng-container *ngIf="cardType.club">
+      <div class="d-flex flex-column">
+        <span class="text-natural-800 font-sm-medium mb-2" [translate]="'GIFT_CARD.TEXT_10'|translate"></span>
+        <!--      <span class="text-natural-400 font-sm-regular" [translate]="'GIFT_CARD.TEXT_10_SUB'|translate"></span>-->
+      </div>
+      <hr/>
+    </ng-container>
+
+    <div class="d-flex align-items-center justify-content-between">
+      <span class="text-natural-800 font-sm-medium" [translate]="'GIFT_CARD.TEXT_11'|translate"></span>
+      <span
+        class="text-success-lira background-success p-1 br-8 font-xs-medium">{{cardType.supportType|supportType}}</span>
     </div>
-    <hr/>
-    <div class="d-flex flex-column">
-      <span class="text-natural-800 font-sm-medium mb-2" [translate]="'GIFT_CARD.TEXT_7'|translate"></span>
-      <span class="text-natural-400 font-sm-regular" [translate]="'GIFT_CARD.TEXT_7_SUB'|translate"></span>
-    </div>
-    <hr/>
-    <div class="d-flex flex-column">
-      <span class="text-natural-800 font-sm-medium mb-2" [translate]="'GIFT_CARD.TEXT_8'|translate"></span>
-      <span class="text-natural-400 font-sm-regular" [translate]="'GIFT_CARD.TEXT_8_SUB'|translate"></span>
-    </div>
-    <hr/>
-    <div class="d-flex flex-column">
-      <span class="text-natural-800 font-sm-medium mb-2" [translate]="'GIFT_CARD.TEXT_9'|translate"></span>
-      <span class="text-natural-400 font-sm-regular" [translate]="'GIFT_CARD.TEXT_9_SUB'|translate"></span>
-    </div>
-    <hr/>
-    <div class="d-flex flex-column">
-      <span class="text-natural-800 font-sm-medium mb-2" [translate]="'GIFT_CARD.TEXT_10'|translate"></span>
-      <span class="text-natural-400 font-sm-regular" [translate]="'GIFT_CARD.TEXT_10_SUB'|translate"></span>
-    </div>
-    <hr/>
-    <span class="text-natural-800 font-sm-medium " [translate]="'GIFT_CARD.TEXT_11'|translate"></span>
+
   </div>
+
+  <div class="d-flex align-items-center justify-content-between background-natural-100 row-container br-8 mb-3">
+    <span class="text-natural-800 font-sm-medium" [translate]="'GIFT_CARD.TEXT_12'|translate"></span>
+    <span class="text-natural-800 font-sm-regular">{{cardType.serviceFee ? 'دارد' : 'ندارد'}}</span>
+  </div>
+
 
   <app-action-bar
     [showDivider]="true"

@@ -6,6 +6,7 @@ import {ActionBarModule} from "../../../componnet/action-bar/action-bar.componen
 import {TranslateModule} from "@ngx-translate/core";
 import {CardModule} from "../../../componnet/card/card.component";
 import {CardTypeStore} from "../../../data-store/card-type-store/card-type.store";
+import {SupportTypePipeModule} from "../../../pipe/support-type.pipe";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {CardTypeStore} from "../../../data-store/card-type-store/card-type.store
     ActionBarModule,
     TranslateModule,
     CardModule,
-    CardTypeStore
+    CardTypeStore,
+    SupportTypePipeModule
   ]
 })
 export class GiftCardModule {
