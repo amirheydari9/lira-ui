@@ -56,6 +56,12 @@ export class MainToolbarComponent implements OnInit {
         }
       })
     )
+
+    this.subscription.push(
+      this.titlesService.getTitle().subscribe(data => {
+        if (data) this.title = data
+      })
+    )
   }
 
   handleShowBackButton(url: string): void {
@@ -80,7 +86,7 @@ export class MainToolbarComponent implements OnInit {
 @NgModule({
   declarations: [MainToolbarComponent],
   exports: [MainToolbarComponent],
-    imports: [CommonModule, MatToolbarModule, RouterModule, SvgIconModule, TranslateModule, SupportModule]
+  imports: [CommonModule, MatToolbarModule, RouterModule, SvgIconModule, TranslateModule, SupportModule]
 })
 export class MainToolbarModule {
 }

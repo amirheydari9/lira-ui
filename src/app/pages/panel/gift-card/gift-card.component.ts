@@ -7,6 +7,7 @@ import {AutoUnsubscribe} from "../../../decorator/AutoUnSubscribe";
 import {Subscription} from "rxjs";
 import {preRegisterUserData} from "../../../config/key";
 import {StorageService} from "../../../service/storage.service";
+import {TitleService} from "../../../service/title.service";
 
 @AutoUnsubscribe()
 @Component({
@@ -24,7 +25,8 @@ export class GiftCardComponent implements OnInit {
     public cardTypeFacade: CardTypeFacade,
     private activatedRoute: ActivatedRoute,
     private storageService: StorageService,
-    private router: Router
+    private router: Router,
+    private titleService: TitleService
   ) {
   }
 
@@ -32,7 +34,10 @@ export class GiftCardComponent implements OnInit {
     try {
       this.loading = true
       await this.cardTypeFacade.fetchCardType(new FetchCardTypeDTO(this.activatedRoute.snapshot.params['id']))
-      this.subscription = this.cardTypeFacade.cardType$.subscribe(data => this.cardType = data)
+      this.subscription = this.cardTypeFacade.cardType$.subscribe(data => {
+        this.cardType = data
+        this.titleService.setTitle(`کارت ${data.titleFa}`)
+      })
     } catch (e) {
       console.log(e)
     } finally {
