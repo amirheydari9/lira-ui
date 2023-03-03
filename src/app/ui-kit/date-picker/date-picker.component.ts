@@ -32,7 +32,6 @@ const MY_FORMATS = {
 export class DatePickerComponent extends BaseControlValueAccessor<string> implements OnInit {
 
   control: FormControl;
-  startDate: Date
 
   @Input() label: string
   @Input() errors: any = null
@@ -47,6 +46,9 @@ export class DatePickerComponent extends BaseControlValueAccessor<string> implem
 
   ngOnInit(): void {
     this.control = this.controlDirective.control as FormControl
+    if (this.value) {
+      this.changed(moment(this.value).format('YYYY-MM-DD'));
+    }
   }
 
   onChanged($event: MatDatepickerInputEvent<any | null>) {

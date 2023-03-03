@@ -1,6 +1,6 @@
 <span class="font-sm-medium text-natural-800 mb-3 d-block" [translate]="'PASSPORT_INFO.TITLE'|translate"></span>
 <form [formGroup]="PassportInfoForm">
-  <app-text-input [label]="'PASSPORT_INFO.INPUT_1'|translate" formControlName="passNo" [maxLength]="10"></app-text-input>
+  <app-text-input [label]="'PASSPORT_INFO.INPUT_1'|translate" formControlName="passNo" [maxLength]="9"></app-text-input>
   <app-date-picker [label]="'PASSPORT_INFO.input_2'|translate" formControlName="passCreateDate" startView="multi-year"></app-date-picker>
   <app-date-picker [label]="'PASSPORT_INFO.input_3'|translate" formControlName="passExpireDate" startView="multi-year"></app-date-picker>
 </form>

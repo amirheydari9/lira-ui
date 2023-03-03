@@ -23,6 +23,7 @@ export class FieldErrorsComponent {
     pattern: (params) => 'کاراکتر های ورودی معتبر نمی باشد',
     postalCode: (params) => params.message,
     whitespace: (params) => params.message,
+    passportNumber: (params) => params.message,
   };
 
   shouldShowErrors(): boolean {

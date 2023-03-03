@@ -8,7 +8,7 @@
            [matDatepicker]="picker"
            (dateChange)="onChanged($event)"
            (blur)="touched()"
-           [(ngModel)]="startDate">
+           [(ngModel)]="value">
     <span class="font-sm-regular">{{label}}</span>
     <mat-datepicker #picker [startView]="startView" touchUi></mat-datepicker>
   </div>

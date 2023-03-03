@@ -4,6 +4,7 @@ import {preRegisterUserData} from "../../../config/key";
 import {StorageService} from "../../../service/storage.service";
 import {AutoUnsubscribe} from "../../../decorator/AutoUnSubscribe";
 import {Subscription} from "rxjs";
+import {CustomValidators} from "../../../utils/Custom-Validators";
 
 @AutoUnsubscribe()
 @Component({
@@ -24,7 +25,7 @@ export class PassportInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.PassportInfoForm = this.fb.group({
-      passNo: this.fb.control(null, [Validators.required]),
+      passNo: this.fb.control(null, [Validators.required, CustomValidators.passportNumber]),
       passCreateDate: this.fb.control(null, [Validators.required]),
       passExpireDate: this.fb.control(null, [Validators.required]),
     })

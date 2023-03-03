@@ -9,6 +9,9 @@ import {Observable} from "rxjs";
 import {InquiryRegisterAction, RegisterState} from "./register.store";
 import {IInquiryRegisterRes} from "../../model/interface/inquiry-register-res.interface";
 import {Navigate} from "@ngxs/router-plugin";
+import {RegisterStatus} from "../../config/enum";
+import {preRegisterUserData} from "../../config/key";
+import {StorageService} from "../../service/storage.service";
 
 
 @Injectable({
@@ -18,6 +21,7 @@ export class RegisterFacade {
 
   constructor(
     private registerService: RegisterService,
+    private storageService: StorageService,
   ) {
   }
 
@@ -26,12 +30,16 @@ export class RegisterFacade {
   @Dispatch()
   async inquiryRegister() {
     const data = await this.registerService.inquiryRegister()
+    if (data.registerStatus === RegisterStatus.OPR_REJECTED) {
+      this.storageService.setSessionStorage(preRegisterUserData, data)
+    }
     return new InquiryRegisterAction(data)
   }
 
   @Dispatch()
   async register(payload: RegisterDTO) {
     const data = await this.registerService.register(payload)
+    this.storageService.removeSessionStorage(preRegisterUserData)
     return [new InquiryRegisterAction(data), new Navigate(['/status'])]
   }
 
