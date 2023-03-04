@@ -15,7 +15,7 @@ export class SupportTypePipe implements PipeTransform {
       case SupportType.VIP:
         return 'ویژه'
     }
-    return null;
+    return value;
   }
 }
 

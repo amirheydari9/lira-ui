@@ -8,6 +8,9 @@ import {RegisterStepperModule} from "../../componnet/register-stepper/register-s
 import {SvgIconModule} from "../../componnet/svg-icon/svg-icon.component";
 import {ActionBarModule} from "../../componnet/action-bar/action-bar.component";
 import {SupportModule} from "../../componnet/support/support.component";
+import {JalaliDatePipeModule} from "../../pipe/jalali-date.pipe";
+import {PaymentStatusPipeModule} from "../../pipe/payment-status.pipe";
+import {CurrencyModule} from "../../directive/currency.directive";
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import {SupportModule} from "../../componnet/support/support.component";
     RegisterStepperModule,
     SvgIconModule,
     ActionBarModule,
-    SupportModule
+    SupportModule,
+    JalaliDatePipeModule,
+    PaymentStatusPipeModule,
+    CurrencyModule
   ]
 })
 export class StatusModule {
