@@ -3,11 +3,7 @@
   <div class="d-flex flex-column align-items-center justify-content-center">
     <app-svg-icon svg="success" width="56" height="56" class="mb-4"></app-svg-icon>
     <span class="text-natural-800 font-sm-medium">
-      {{transactionDetails.paymentStatus === PaymentStatus.DONE
-      ? 'تراکنش شما با موفقیت انجام شد'
-      : transactionDetails.paymentStatus === PaymentStatus.FAILED
-        ? 'تراکنش شما انجام نشد'
-        : 'تراکنش در حال انجام است '}}
+      {{transactionDetails.paymentStatus === PaymentStatus.DONE ? 'تراکنش شما با موفقیت انجام شد' : 'تراکنش شما انجام نشد'}}
     </span>
   </div>
 
