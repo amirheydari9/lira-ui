@@ -3,7 +3,6 @@ export interface IGetTokenRes {
   method: string,
   inputType: string,
   inputData: {
-    token: string,
-    resNum?: string;
+    token: string
   }
 }
