@@ -5,10 +5,12 @@ import {TranslateModule} from "@ngx-translate/core";
 @Component({
   selector: 'app-support',
   template: `
-    <div class="d-flex align-items-center">
-      <app-svg-icon svg="support" width="16" height="16" classes="ms-1"></app-svg-icon>
-      <span class="text-success-lira font-sm-bold" [translate]="'COMPONENTS.SUPPORT.TEXT'|translate"></span>
-    </div>`,
+    <a href="tel://02191060000">
+      <div class="d-flex align-items-center">
+        <app-svg-icon svg="support" width="16" height="16" classes="ms-1"></app-svg-icon>
+        <span class="text-success-lira font-sm-bold" [translate]="'COMPONENTS.SUPPORT.TEXT'|translate"></span>
+      </div>
+    </a>`,
   styleUrls: ['./support.component.scss']
 })
 export class SupportComponent implements OnInit {
