@@ -25,6 +25,6 @@ export class IpgFacade {
     const data = await this.ipgService.submitTrx(payload)
     await this.registerFacade.inquiryRegister()
     this.storageService.setSessionStorage(transactionDetails, data)
-    return new Navigate(['/status'])
+    return new Navigate(['/payment-status'])
   }
 }

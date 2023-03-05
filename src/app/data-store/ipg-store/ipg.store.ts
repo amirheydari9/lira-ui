@@ -1,11 +1,11 @@
 import {Injectable, NgModule} from '@angular/core';
 import {NgxsModule, State} from '@ngxs/store';
 
-export interface ipgStateModel {
+export interface IpgStateModel {
 
 }
 
-@State<ipgStateModel>({
+@State<IpgStateModel>({
   name: 'ipg',
 })
 

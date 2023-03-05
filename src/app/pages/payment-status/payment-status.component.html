@@ -1,0 +1,65 @@
+<div class="row-container d-flex flex-column" *ngIf="transactionDetails">
+
+  <div class="d-flex flex-column align-items-center justify-content-center">
+    <app-svg-icon svg="success" width="56" height="56" class="mb-4"></app-svg-icon>
+    <span class="text-natural-800 font-sm-medium">
+      {{transactionDetails.paymentStatus === PaymentStatus.DONE
+      ? 'تراکنش شما با موفقیت انجام شد'
+      : transactionDetails.paymentStatus === PaymentStatus.FAILED
+        ? 'تراکنش شما انجام نشد'
+        : 'تراکنش در حال انجام است '}}
+    </span>
+  </div>
+
+  <div class="px-4 mt-3">
+    <div class="d-flex align-items-center justify-content-between">
+      <span class="text-natural-800 font-sm-regular">شماره موبایل : </span>
+      <span class="text-natural-800 font-sm-bold">{{transactionDetails.mobileNumber}}</span>
+    </div>
+    <hr/>
+    <div class="d-flex align-items-center justify-content-between">
+      <span class="text-natural-800 font-sm-regular">شماره پیگیری : </span>
+      <span class="text-natural-800 font-sm-bold">{{transactionDetails.referenceNumber}}</span>
+    </div>
+    <hr/>
+    <div class="d-flex align-items-center justify-content-between">
+      <span class="text-natural-800 font-sm-regular">شماره کارت : </span>
+      <span class="text-natural-800 font-sm-bold">{{transactionDetails.maskedCardNumber}}</span>
+    </div>
+    <hr/>
+    <div class="d-flex align-items-center justify-content-between">
+      <span class="text-natural-800 font-sm-regular">مبلغ : </span>
+      <span class="text-natural-800 font-sm-bold" currency currencyColor="text-natural-800"
+            currencyFont="font-sm-bold">{{transactionDetails.amount| number}}</span>
+    </div>
+    <hr/>
+    <div class="d-flex align-items-center justify-content-between">
+      <span class="text-natural-800 font-sm-regular">تاریخ تراکنش : </span>
+      <span class="text-natural-800 font-sm-bold">
+          {{transactionDetails.transactionDate.split('T')[0]|jalaliDate:'YYYY-MM-DD':'iso'}}
+      </span>
+    </div>
+    <hr/>
+    <div class="d-flex align-items-center justify-content-between">
+      <span class="text-natural-800 font-sm-regular">ساعت تراکنش : </span>
+      <span class="text-natural-800 font-sm-bold">
+          {{transactionDetails.transactionDate.split('T')[1]}}
+      </span>
+    </div>
+    <hr/>
+    <div class="d-flex align-items-center justify-content-between">
+      <span class="text-natural-800 font-sm-regular">وضعیت پرداخت : </span>
+      <span
+        [class.text-success-lira]="transactionDetails.paymentStatus === PaymentStatus.DONE"
+        [class.text-error]="transactionDetails.paymentStatus === PaymentStatus.FAILED"
+        [class.text-primary]="transactionDetails.paymentStatus === PaymentStatus.IN_PROGRESS"
+        class="text-natural-800 font-sm-bold">{{transactionDetails.paymentStatus|paymentStatus}}</span>
+    </div>
+  </div>
+
+  <app-action-bar
+    confirmLabel="ادامه"
+    (confirm)="handleGoToApp()"
+  ></app-action-bar>
+
+</div>
