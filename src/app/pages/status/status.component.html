@@ -4,82 +4,59 @@
     <app-support></app-support>
   </div>
 
-  <!--PRE_REGISTER-->
-  <div class="d-flex flex-column"
-       *ngIf="(registerFacade.inquiryRegister$|async).registerStatus === RegisterStatus.PRE_REGISTER">
+  <div class="d-flex flex-column mt-5">
 
-    <app-action-success
-      class="mb-4"
-      [title]="'COMPONENTS.DIALOG.PERSONAL_INFO_SUCCESS.TITLE'|translate">
-    </app-action-success>
+    <app-svg-icon svg="register_flow" width="120" height="120" class="mx-auto"></app-svg-icon>
 
-    <app-register-stepper [currentStep]="1" class="mb-3"></app-register-stepper>
+    <app-register-stepper [currentStep]="currentStep" class="mb-4"></app-register-stepper>
 
-    <div class="d-flex align-items-start mb-4">
-      <app-svg-icon svg="info" width="16" height="16" class="ms-2"></app-svg-icon>
-      <span class="text-natural-800 font-sm-regular"
-            [translate]="'COMPONENTS.DIALOG.PERSONAL_INFO_SUCCESS.TEXT_1'|translate"></span>
+    <div class="d-flex align-items-center justify-content-center flex-column"
+         *ngIf="(registerFacade.inquiryRegister$|async).registerStatus === RegisterStatus.PRE_REGISTER">
+
+      <div class="d-flex align-items-start mb-4">
+        <app-svg-icon svg="info" width="16" height="16" class="ms-2"></app-svg-icon>
+        <span class="text-natural-800 font-sm-regular" [translate]="'STATUS.TEXT_1'|translate"></span>
+      </div>
+      <span class="p-3 font-sm-regular text-natural-800 background-natural-100 br-8"
+            [translate]="'STATUS.TEXT_2'|translate"></span>
     </div>
-    <span class="p-3 font-sm-regular text-natural-800 background-natural-100 br-8"
-          [translate]="'COMPONENTS.DIALOG.PERSONAL_INFO_SUCCESS.TEXT_2'|translate"></span>
-  </div>
 
-  <!--OPR_REJECTED-->
-  <div class="d-flex flex-column"
-       *ngIf="(registerFacade.inquiryRegister$|async).registerStatus === RegisterStatus.OPR_REJECTED">
+    <div class="d-flex justify-content-center" *ngIf="(registerFacade.inquiryRegister$|async).registerStatus === RegisterStatus.OPR_REJECTED">
 
-    <app-action-success
-      class="mb-4"
-      [title]="'COMPONENTS.DIALOG.PERSONAL_INFO_SUCCESS.TITLE'|translate">
-    </app-action-success>
+       <span class="p-3 font-sm-regular text-error background-error br-8">
+         اطلاعات خود را به درستی تکمیل نمایید
+       </span>
 
-    <app-register-stepper [currentStep]="1" class="mb-3"></app-register-stepper>
+      <app-action-bar
+        [confirmLabel]="'STATUS.ACTION_LABEL_1'|translate"
+        routerLink="/register/personal-info"
+      ></app-action-bar>
 
-    <app-action-bar
-      [confirmLabel]="'REGISTER.ACTION_LABEL'|translate"
-      routerLink="/register/personal-info"
-    ></app-action-bar>
-
-  </div>
-
-  <!--OPR_ACCEPTED-->
-  <div class="d-flex flex-column"
-       *ngIf="(registerFacade.inquiryRegister$|async).registerStatus === RegisterStatus.OPR_ACCEPTED">
-
-    <app-action-success
-      class="mb-4"
-      [title]="'COMPONENTS.DIALOG.PERSONAL_INFO_SUCCESS.TITLE'|translate">
-    </app-action-success>
-
-    <app-register-stepper [currentStep]="1" class="mb-3"></app-register-stepper>
-
-    <app-action-bar
-      [confirmLabel]="'REGISTER.ACTION_LABEL'|translate"
-      routerLink="/register/address"
-    ></app-action-bar>
-
-  </div>
-
-  <!--HOTEL_ADDRESS_CONFIRMED-->
-  <div class="d-flex flex-column"
-       *ngIf="(registerFacade.inquiryRegister$|async).registerStatus === RegisterStatus.HOTEL_ADDRESS_CONFIRMED">
-
-    <app-action-success
-      class="mb-4"
-      [title]="'COMPONENTS.DIALOG.PERSONAL_INFO_SUCCESS.TITLE'|translate">
-    </app-action-success>
-
-    <app-register-stepper [currentStep]="4" class="mb-3"></app-register-stepper>
-
-    <div class="d-flex align-items-start mb-4">
-      <app-svg-icon svg="info" width="16" height="16" class="ms-2"></app-svg-icon>
-      <span class="text-natural-800 font-sm-regular"
-            [translate]="'COMPONENTS.DIALOG.PERSONAL_INFO_SUCCESS.TEXT_1'|translate"></span>
     </div>
-    <span class="p-3 font-sm-regular text-natural-800 background-natural-100 br-8"
-          [translate]="'COMPONENTS.DIALOG.PERSONAL_INFO_SUCCESS.TEXT_2'|translate"></span>
+
+    <div class="d-flex justify-content-center"
+         *ngIf="(registerFacade.inquiryRegister$|async).registerStatus === RegisterStatus.OPR_ACCEPTED">
+
+      <span class="p-3 font-sm-regular text-success-lira background-success br-8"
+            [translate]="'STATUS.TEXT_3'|translate"></span>
+
+      <app-action-bar
+        [confirmLabel]="'STATUS.ACTION_LABEL_2'|translate"
+        routerLink="/register/address"
+      ></app-action-bar>
+
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center flex-column"
+         *ngIf="(registerFacade.inquiryRegister$|async).registerStatus === RegisterStatus.HOTEL_ADDRESS_CONFIRMED">
+
+      <div class="d-flex align-items-start mb-4">
+        <app-svg-icon svg="info" width="16" height="16" class="ms-2"></app-svg-icon>
+        <span class="text-natural-800 font-sm-regular" [translate]="'STATUS.TEXT_4'|translate"></span>
+      </div>
+
+    </div>
+
   </div>
 
 </div>
-
-

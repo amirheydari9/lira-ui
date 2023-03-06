@@ -5,24 +5,26 @@ import {RegisterStepperModule} from "../../../componnet/register-stepper/registe
 import {TranslateModule} from "@ngx-translate/core";
 import {ActionBarModule} from "../../../componnet/action-bar/action-bar.component";
 import {RouterModule} from "@angular/router";
+import {SvgIconModule} from "../../../componnet/svg-icon/svg-icon.component";
 
 
 @NgModule({
   declarations: [
     RegistrationProcessComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: RegistrationProcessComponent
-      }
-    ]),
-    ActionBarModule,
-    TranslateModule,
-    RegisterStepperModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: RegistrationProcessComponent
+            }
+        ]),
+        ActionBarModule,
+        TranslateModule,
+        RegisterStepperModule,
+        SvgIconModule
+    ]
 })
 export class RegistrationProcessModule {
 }
