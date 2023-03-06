@@ -33,7 +33,6 @@
     "bootstrap": "^5.2.3",
     "browser-image-compression": "^2.0.0",
     "jalali-moment": "^3.3.11",
-    "ngx-countdown": "^13.0.0",
     "ngx-material-timepicker": "^5.5.3",
     "ngx-skeleton-loader": "^5.0.0",
     "rxjs": "~7.5.0",
