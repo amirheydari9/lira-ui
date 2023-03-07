@@ -1,12 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ISubmitTrxRes} from "../../model/interface/submit-trx-res.interface";
 import {StorageService} from "../../service/storage.service";
 import {PaymentStatus} from 'src/app/config/enum';
 import {transactionDetails} from 'src/app/config/key';
-import {SubmitTrxDTO} from "../../model/DTO/submit-trx.DTO";
 import {ActivatedRoute, Router} from "@angular/router";
-import {IpgFacade} from "../../data-store/ipg-store/ipg.facade";
 import {Subscription} from "rxjs";
+import {PaymentFacade} from "../../data-store/payment-store/payment.facade";
+import {PaymentCallbackDTO} from "../../model/DTO/payment-callback.DTO";
+import {IPaymentCallbackRes} from "../../model/interface/payment-callback-res.interface";
 
 @Component({
   selector: 'app-payment-status',
@@ -15,13 +15,13 @@ import {Subscription} from "rxjs";
 })
 export class PaymentStatusComponent implements OnInit, OnDestroy {
 
-  transactionDetails: ISubmitTrxRes
+  transactionDetails: IPaymentCallbackRes
   subscription: Subscription
 
   constructor(
     private storageService: StorageService,
     private activatedRoute: ActivatedRoute,
-    private ipgFacade: IpgFacade,
+    private paymentFacade: PaymentFacade,
     private router: Router,
   ) {
   }
@@ -29,7 +29,7 @@ export class PaymentStatusComponent implements OnInit, OnDestroy {
   async ngOnInit(): Promise<void> {
     // اگه دوباره اومد تو این صفحه چی ؟
 
-    const payload = new SubmitTrxDTO(
+    const payload = new PaymentCallbackDTO(
       +this.activatedRoute.snapshot.queryParams['MID'],
       this.activatedRoute.snapshot.queryParams['State'],
       +this.activatedRoute.snapshot.queryParams['Status'],
@@ -45,7 +45,7 @@ export class PaymentStatusComponent implements OnInit, OnDestroy {
       this.activatedRoute.snapshot.queryParams['Token'],
       this.activatedRoute.snapshot.queryParams['HashedCardNumber'],
     )
-    await this.ipgFacade.submitTrx(payload)
+    await this.paymentFacade.paymentCallBack(payload)
     if (this.storageService.getSessionStorage(transactionDetails)) {
       this.transactionDetails = this.storageService.getSessionStorage(transactionDetails)
     }

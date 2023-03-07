@@ -8,6 +8,7 @@ import {AutoUnsubscribe} from "../../../decorator/AutoUnSubscribe";
 import {Subscription} from "rxjs";
 import {preRegisterUserData} from "../../../config/key";
 import {RegisterDTO} from "../../../model/DTO/register.DTO";
+import {UpdateDTO} from "../../../model/DTO/update.DTO";
 
 @AutoUnsubscribe()
 @Component({
@@ -21,6 +22,7 @@ export class UploadDocumentComponent implements OnInit {
   imageSrc = ''
   file: File
   subscription: Subscription
+  changedFile: boolean
 
   constructor(
     private fileUtilService: FileUtilService,
@@ -30,33 +32,60 @@ export class UploadDocumentComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    try {
+      await this.fileFacade.fetchFile()
+      if (this.storageService.getSessionStorage(preRegisterUserData).imageBase64) {
+        this.imageSrc = this.storageService.getSessionStorage(preRegisterUserData).imageBase64
+        this.file = await await this.fileUtilService.convertBase64ToFile(this.imageSrc)[0]
+      }
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   async handleChangeFile($event: Event) {
+    this.changedFile = true
     this.file = $event.target['files'][0]
     this.imageSrc = await this.fileUtilService.convertFileToBase64(this.file)
   }
 
   async handleConfirm() {
     try {
-      const compressedFile = await this.fileUtilService.compressImage(this.file)
-      const newFile = this.fileUtilService.createFile(compressedFile)
-      await this.fileFacade.upload(new UploadFileDTO(newFile[0]))
+      if (this.changedFile) {
+        const compressedFile = await this.fileUtilService.compressImage(this.file)
+        const newFile = this.fileUtilService.createFile(compressedFile)
+        await this.fileFacade.upload(new UploadFileDTO(newFile[0]))
+      }
       const preRegisterData = this.storageService.getSessionStorage(preRegisterUserData)
-      const payload = new RegisterDTO(
-        preRegisterData.cardTypeId,
-        preRegisterData.englishFirstName,
-        preRegisterData.englishLastName,
-        preRegisterData.email,
-        preRegisterData.passNo,
-        preRegisterData.passCreateDate,
-        preRegisterData.passExpireDate,
-        preRegisterData.passImage,
-        preRegisterData.estimatedCost,
-      )
-      await this.registerFacade.register(payload)
-      console.log(payload)
+      if (preRegisterData.id) {
+        const payload = new UpdateDTO(
+          preRegisterData.id,
+          preRegisterData.cardType.id,
+          preRegisterData.englishFirstName,
+          preRegisterData.englishLastName,
+          preRegisterData.email,
+          preRegisterData.passNo,
+          preRegisterData.passCreateDate,
+          preRegisterData.passExpireDate,
+          preRegisterData.passImage,
+          preRegisterData.estimatedCost,
+        )
+        await this.registerFacade.update(payload)
+      } else {
+        const payload = new RegisterDTO(
+          preRegisterData.cardTypeId,
+          preRegisterData.englishFirstName,
+          preRegisterData.englishLastName,
+          preRegisterData.email,
+          preRegisterData.passNo,
+          preRegisterData.passCreateDate,
+          preRegisterData.passExpireDate,
+          preRegisterData.passImage,
+          preRegisterData.estimatedCost,
+        )
+        await this.registerFacade.register(payload)
+      }
     } catch (e) {
       console.log(e)
     }

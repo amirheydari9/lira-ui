@@ -1,6 +1,6 @@
 import {PaymentStatus} from "../../config/enum";
 
-export interface ISubmitTrxRes {
+export interface IPaymentCallbackRes {
   mobileNumber: string;
   clientTrackingNumber: string;
   referenceNumber: string;

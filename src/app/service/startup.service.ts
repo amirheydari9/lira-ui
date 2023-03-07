@@ -15,7 +15,7 @@ export class StartupService {
 
   async load() {
     const url = new URL(window.location.href);
-    const token = url.searchParams.get('token');
+    const token = url.searchParams.get('auth');
     if (token) {
       this.tokenStorageService.saveToken(token)
     }

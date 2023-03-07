@@ -1,6 +1,6 @@
 import {TransactionState} from "../../config/enum";
 
-export class SubmitTrxDTO {
+export class PaymentCallbackDTO {
   constructor(
     public MID: number,
     public State: TransactionState,

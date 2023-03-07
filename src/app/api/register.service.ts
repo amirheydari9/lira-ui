@@ -25,11 +25,11 @@ export class RegisterService {
   }
 
   async register(payload: RegisterDTO): Promise<IRegisterRes> {
-    return this.http.post<IRegisterRes>(`${this.baseUrl}api/register`, payload).toPromise()
+    return this.http.post<IRegisterRes>(`${this.baseUrl}api/lira/register`, payload).toPromise()
   }
 
   async update(payload: UpdateDTO): Promise<IUpdateRes> {
-    return this.http.put<IUpdateRes>(`${this.baseUrl}api/register/update`, payload).toPromise()
+    return this.http.put<IUpdateRes>(`${this.baseUrl}api/lira/register`, payload).toPromise()
   }
 
   async inquiryRegister(): Promise<any> {
@@ -56,15 +56,15 @@ export class RegisterService {
     //   },
     //   "registerStatus": "OPR_REJECTED"
     // }).pipe().toPromise()
-    return this.http.get<IInquiryRegisterRes>(`${this.baseUrl}api/register/inquiry-register`).toPromise()
+    return this.http.get<IInquiryRegisterRes>(`${this.baseUrl}api/lira/register/inquiry-register`).toPromise()
   }
 
   async confirmAddress(payload: ConfirmAddressDTO): Promise<IConfirmAddressRes> {
-    return this.http.put<IConfirmAddressRes>(`${this.baseUrl}api/register/confirm-address`, payload).toPromise()
+    return this.http.put<IConfirmAddressRes>(`${this.baseUrl}api/lira/register/confirm-address`, payload).toPromise()
   }
 
   async confirmHotelAddress(payload: ConfirmHotelAddressDTO): Promise<IConfirmHotelAddressRes> {
-    return this.http.put<IConfirmHotelAddressRes>(`${this.baseUrl}api/register/confirm-hotel-address`, payload).toPromise()
+    return this.http.put<IConfirmHotelAddressRes>(`${this.baseUrl}api/lira/register/confirm-hotel-address`, payload).toPromise()
   }
 
 }

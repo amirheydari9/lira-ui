@@ -12,6 +12,7 @@ import {Navigate} from "@ngxs/router-plugin";
 import {RegisterStatus} from "../../config/enum";
 import {preRegisterUserData} from "../../config/key";
 import {StorageService} from "../../service/storage.service";
+import {UpdateDTO} from "../../model/DTO/update.DTO";
 
 
 @Injectable({
@@ -30,7 +31,7 @@ export class RegisterFacade {
   @Dispatch()
   async inquiryRegister() {
     const data = await this.registerService.inquiryRegister()
-    if (data.registerStatus === RegisterStatus.OPR_REJECTED) {
+    if (data && data.registerStatus === RegisterStatus.OPR_REJECTED) {
       this.storageService.setSessionStorage(preRegisterUserData, data)
     }
     return new InquiryRegisterAction(data)
@@ -39,6 +40,13 @@ export class RegisterFacade {
   @Dispatch()
   async register(payload: RegisterDTO) {
     const data = await this.registerService.register(payload)
+    this.storageService.removeSessionStorage(preRegisterUserData)
+    return [new InquiryRegisterAction(data), new Navigate(['/status'])]
+  }
+
+  @Dispatch()
+  async update(payload: UpdateDTO) {
+    const data = await this.registerService.update(payload)
     this.storageService.removeSessionStorage(preRegisterUserData)
     return [new InquiryRegisterAction(data), new Navigate(['/status'])]
   }

@@ -19,6 +19,10 @@ export class FileService {
   async upload(payload: UploadFileDTO): Promise<IUploadFileRes> {
     const formData = new FormData();
     formData.append("file", payload.file);
-    return this.http.post<IUploadFileRes>(`${this.baseUrl}api/file`, formData).toPromise()
+    return this.http.post<IUploadFileRes>(`${this.baseUrl}api/lira/file`, formData).toPromise()
+  }
+
+  async fetchFile(): Promise<string> {
+    return this.http.get<string>(`${this.baseUrl}api/lira/file`).toPromise()
   }
 }
