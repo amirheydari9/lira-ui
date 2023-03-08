@@ -19,6 +19,7 @@ export class CustomValidators {
       return null;
     }
     if (nationalCode.length !== 10 ||
+      nationalCode === '0000000000' ||
       nationalCode === '1111111111' ||
       nationalCode === '2222222222' ||
       nationalCode === '3333333333' ||
