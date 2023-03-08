@@ -28,9 +28,17 @@ export class FileFacade {
     const data = await this.fileService.upload(payload)
     this.storageService.setSessionStorage(preRegisterUserData, {
       ...this.storageService.getSessionStorage(preRegisterUserData),
-      passImage:data.name
+      passImage: data.name
     })
     return new UploadFileAction(data)
+  }
+
+  async fetchFile() {
+    const data = await this.fileService.fetchFile()
+    this.storageService.setSessionStorage(preRegisterUserData, {
+      ...this.storageService.getSessionStorage(preRegisterUserData),
+      imageBase64: data
+    })
   }
 
 }

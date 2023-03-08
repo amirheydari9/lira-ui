@@ -18,7 +18,7 @@
   <div class="d-flex align-items-center justify-content-between">
 
     <div class="d-flex align-items-center justify-content-center flex-grow-1" (click)="file.click()">
-      <app-svg-icon class="ms-1"></app-svg-icon>
+      <app-svg-icon svg="gallery" class="ms-1"></app-svg-icon>
       <span class="text-primary font-sm-medium" [translate]="'UPLOAD_DOCUMENT.TEXT_1'|translate"></span>
       <input #file type="file" accept="image/*" class="d-none" (change)="handleChangeFile($event)"/>
     </div>

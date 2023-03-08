@@ -7,8 +7,7 @@ import {RegisterStatus} from "../config/enum";
 @Injectable({
   providedIn: 'root'
 })
-export class PaymentSuccessGuard implements CanActivate {
-
+export class PaymentStatusGuard implements CanActivate {
   constructor(
     private registerFacade: RegisterFacade,
     private router: Router

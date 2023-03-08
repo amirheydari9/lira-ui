@@ -4,9 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://109.230.200.86:8081/',
-  ipgUrl: 'http://109.230.200.86:8090/',
-  otpLeftTime: 2 * 60,
+  baseUrl: 'http://109.230.200.86:8081/'
 };
 
 /*

@@ -1,9 +1,11 @@
 <div class="row-container d-flex flex-column">
+  <app-svg-icon svg="register_flow" width="120" height="120" class="mx-auto"></app-svg-icon>
   <span class="font-sm-medium text-natural-800 mb-3" [translate]="'REGISTER.TITLE'|translate"></span>
   <app-register-stepper class="mb-3"></app-register-stepper>
   <div *ngFor="let requirement of requirements;let i = index" class="custom-card position-relative">
     <span class="requirement-index">{{i + 1}}</span>
     <div class="d-flex align-items-center justify-content-start">
+      <app-svg-icon [svg]="requirement.icon" width="16" height="16" class="ms-1"></app-svg-icon>
       <span class="font-sm-medium text-natural-800" [translate]="requirement.title|translate"></span>
     </div>
     <span class="font-sm-regular text-natural-500" [translate]="requirement.subTitle|translate"></span>

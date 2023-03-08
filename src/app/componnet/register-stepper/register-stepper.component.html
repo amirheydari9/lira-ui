@@ -20,7 +20,7 @@
   <ng-container *ngFor="let step of steps;let i=index">
     <div class="stepper-item font-xs-regular text-natural-800" [class.completed]="currentStep>i">
     <div class="step-counter">
-        <app-svg-icon [svg]="currentStep > i ? step.done : step.icon" width="16" height="16"></app-svg-icon>
+        <app-svg-icon [svg]="currentStep > i ? step.done : step.icon" width="13" height="13"></app-svg-icon>
       </div>
       <span class="step-name" [translate]="step.title"></span>
     </div>

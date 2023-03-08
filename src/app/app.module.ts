@@ -12,7 +12,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {ServiceWorkerModule} from '@angular/service-worker';
-import {NgxMaskModule} from "ngx-mask";
 import {InterceptorService} from "./service/interceptor.service";
 import {RegisterStore} from "./data-store/register-store/register.store";
 import {StartupService} from "./service/startup.service";
@@ -44,7 +43,6 @@ export function startupServiceFactory(startupService: StartupService): Function 
     NgxsModule.forRoot([], {
       developmentMode: !environment.production
     }),
-    NgxMaskModule.forRoot(),
     NgxsDispatchPluginModule.forRoot(),
     NgxsRouterPluginModule.forRoot(),
     BrowserAnimationsModule,

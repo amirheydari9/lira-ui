@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {CustomPreloadStrategyService} from "./service/custom-preload-strategy.service";
 import {NotRegisteredGuard} from "./guard/not-registered.guard";
 import {StatusGuard} from "./guard/status.guard";
-import {PaymentSuccessGuard} from "./guard/payment-success.guard";
+import {PaymentStatusGuard} from "./guard/payment-status.guard";
 
 const routes: Routes = [
 
@@ -26,9 +26,9 @@ const routes: Routes = [
     canActivate: [StatusGuard]
   },
   {
-    path: 'payment-success',
-    loadChildren: () => import('./pages/payment-success/payment-success.module').then(m => m.PaymentSuccessModule),
-    canActivate: [PaymentSuccessGuard]
+    path: 'payment-status',
+    loadChildren: () => import('./pages/payment-status/payment-status.module').then(m => m.PaymentStatusModule),
+    canActivate: [PaymentStatusGuard]
   },
   {
     path: 'error',

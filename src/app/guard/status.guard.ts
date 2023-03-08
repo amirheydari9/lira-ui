@@ -23,6 +23,7 @@ export class StatusGuard implements CanActivate {
       map((data) => {
         if (!data) this.router.navigate(['/'])
         if (data && data.registerStatus === RegisterStatus.ADDRESS_CONFIRMED) this.router.navigate(['/register/payment'])
+        if (data && data.registerStatus === RegisterStatus.PAYMENT_DONE) this.router.navigate(['/register/hotel-address'])
         return true
       })
     )

@@ -18,5 +18,6 @@ export interface IUpdateRes {
   hotelPhoneNumber: string;
   passImage: string;
   cardType: ICardTypeRes,
-  registerStatus: RegisterStatus
+  registerStatus: RegisterStatus,
+  description: string
 }
