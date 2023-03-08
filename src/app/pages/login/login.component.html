@@ -1,0 +1,23 @@
+<div class="row-container d-flex flex-column align-items-center justify-content-center">
+  <img src="assets/images/bro.png"/>
+  <span class="mb-3 ms-auto font-sm-regular text-natural-800" [translate]="'LOGIN.TEXT_1'"></span>
+  <form [formGroup]="LoginForm" class="w-100">
+    <app-text-input
+      [label]="'LOGIN.INPUT_1'|translate"
+      formControlName="nationalCode"
+      [maxLength]="10"
+    ></app-text-input>
+    <app-text-input
+      [label]="'LOGIN.INPUT_2'|translate"
+      formControlName="mobileNumber"
+      [maxLength]="11"
+    ></app-text-input>
+  </form>
+</div>
+
+<app-action-bar
+  [showDivider]="true"
+  [disabled]="LoginForm.invalid"
+  (confirm)="handleConfirm()"
+  [confirmLabel]="'LOGIN.ACTION_LABEL'|translate">
+</app-action-bar>

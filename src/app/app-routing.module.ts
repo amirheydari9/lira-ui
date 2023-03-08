@@ -6,10 +6,15 @@ import {StatusGuard} from "./guard/status.guard";
 import {PaymentSuccessGuard} from "./guard/payment-success.guard";
 
 const routes: Routes = [
+
   {
     path: '',
     loadChildren: () => import('./pages/panel/panel.module').then(m => m.PanelModule),
     canActivate: [NotRegisteredGuard]
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
   },
   {
     path: 'register',

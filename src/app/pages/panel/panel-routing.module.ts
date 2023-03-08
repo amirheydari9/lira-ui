@@ -7,15 +7,11 @@ const routes: Routes = [
     path: '',
     component: PanelComponent,
     children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'home'
-      },
-      {
-        path: '',
-        loadChildren: () => import('../panel/home/home.module').then(m => m.HomeModule),
-      },
+      // {
+      //   path: '',
+      //   pathMatch: 'full',
+      //   redirectTo: 'home'
+      // },
       {
         path: 'gift-cards',
         loadChildren: () => import('../panel/gift-cards/gift-cards.module').then(m => m.GiftCardsModule),

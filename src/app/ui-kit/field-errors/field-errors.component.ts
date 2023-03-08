@@ -24,6 +24,8 @@ export class FieldErrorsComponent {
     postalCode: (params) => params.message,
     whitespace: (params) => params.message,
     passportNumber: (params) => params.message,
+    nationalCode: (params) => params.message,
+    mobile: (params) => params.message,
   };
 
   shouldShowErrors(): boolean {
